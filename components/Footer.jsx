@@ -1,0 +1,93 @@
+"use client";
+
+import Link from "next/link";
+import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+
+export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="bg-dark-grey text-off-white pt-20 pb-8">
+      <div className="container mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          {/* Brand */}
+          <div>
+            <h3 className="text-2xl font-bold mb-4 tracking-widest">
+              Luxe<span className="font-light">Leather</span>
+            </h3>
+            <p className="text-sm text-off-white/70 leading-relaxed mb-6">
+              Premium bespoke leather jacket manufacturing for elite brands and discerning individuals since 2026.
+            </p>
+            <div className="flex space-x-4">
+              <a href="#" className="hover:text-gold transition-colors">
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a href="#" className="hover:text-gold transition-colors">
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a href="#" className="hover:text-gold transition-colors">
+                <Twitter className="w-5 h-5" />
+              </a>
+              <a href="#" className="hover:text-gold transition-colors">
+                <Linkedin className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wider mb-4">Quick Links</h4>
+            <ul className="space-y-3">
+              <li><Link href="/builder" className="text-sm text-off-white/70 hover:text-gold transition-colors">Custom Builder</Link></li>
+              <li><Link href="/bulk" className="text-sm text-off-white/70 hover:text-gold transition-colors">Bulk Orders</Link></li>
+              <li><Link href="/draw" className="text-sm text-off-white/70 hover:text-gold transition-colors">Design Tool</Link></li>
+              <li><Link href="/about" className="text-sm text-off-white/70 hover:text-gold transition-colors">About Us</Link></li>
+              <li><Link href="/blog" className="text-sm text-off-white/70 hover:text-gold transition-colors">Blog</Link></li>
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wider mb-4">Legal</h4>
+            <ul className="space-y-3">
+              <li><Link href="/privacy" className="text-sm text-off-white/70 hover:text-gold transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="text-sm text-off-white/70 hover:text-gold transition-colors">Terms & Conditions</Link></li>
+              <li><Link href="/faq" className="text-sm text-off-white/70 hover:text-gold transition-colors">FAQ</Link></li>
+              <li><Link href="/track" className="text-sm text-off-white/70 hover:text-gold transition-colors">Order Tracking</Link></li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wider mb-4">Contact</h4>
+            <ul className="space-y-3">
+              <li className="flex items-start space-x-3">
+                <MapPin className="w-4 h-4 mt-1 text-gold flex-shrink-0" />
+                <span className="text-sm text-off-white/70">123 Leather Lane, Shoreditch, London E1 6AN, UK</span>
+              </li>
+              <li className="flex items-center space-x-3">
+                <Phone className="w-4 h-4 text-gold flex-shrink-0" />
+                <span className="text-sm text-off-white/70">+44 20 7946 0958</span>
+              </li>
+              <li className="flex items-center space-x-3">
+                <Mail className="w-4 h-4 text-gold flex-shrink-0" />
+                <span className="text-sm text-off-white/70">orders@luxeleather.co.uk</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-off-white/10 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <p className="text-xs text-off-white/50">
+            © {currentYear} LuxeLeather Ltd. All rights reserved. Registered in England & Wales.
+          </p>
+          <div className="flex items-center space-x-6">
+            <img src="/badges/ssl.svg" alt="SSL Secure" className="h-8 opacity-70" onError={(e) => e.target.style.display = 'none'} />
+            <img src="/badges/gdpr.svg" alt="GDPR Compliant" className="h-8 opacity-70" onError={(e) => e.target.style.display = 'none'} />
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
