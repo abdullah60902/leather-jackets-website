@@ -8,7 +8,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/Button";
 
-export default function SuccessPage() {
+import { Suspense } from "react";
+
+function SuccessContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const orderId = searchParams.get("order");
@@ -55,5 +57,13 @@ export default function SuccessPage() {
 
       <Footer />
     </div>
+  );
+}
+
+export default function SuccessPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-off-white" />}>
+      <SuccessContent />
+    </Suspense>
   );
 }
