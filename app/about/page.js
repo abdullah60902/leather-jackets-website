@@ -40,7 +40,7 @@ export default function AboutPage() {
             >
               <h2 className="text-3xl font-light text-dark-grey mb-6">Our Story</h2>
               <p className="text-mid-grey leading-relaxed mb-4">
-                Founded in the heart of London's creative district, LuxeLeather was born from a simple belief: every brand deserves access to world-class leather jacket manufacturing without compromising on quality or customization.
+                Founded in the heart of London's creative district, ATSAS was born from a simple belief: every brand deserves access to world-class leather jacket manufacturing without compromising on quality or customization.
               </p>
               <p className="text-mid-grey leading-relaxed mb-4">
                 Our team of master craftsmen combines traditional leatherworking techniques with cutting-edge technology to deliver jackets that are not just garments, but statements of identity and excellence.

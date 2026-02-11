@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const baseUrl = 'https://luxeleather.co.uk';
+  const baseUrl = 'https://atsas.co.uk';
   
   const routes = [
     '',

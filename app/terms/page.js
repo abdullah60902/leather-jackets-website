@@ -16,14 +16,14 @@ export default function TermsPage() {
               <section>
                 <h2 className="text-2xl font-semibold text-dark-grey mb-4">1. Agreement to Terms</h2>
                 <p className="text-mid-grey leading-relaxed">
-                  By accessing and using the LuxeLeather website and services, you agree to be bound by these Terms and Conditions. If you do not agree, please do not use our services.
+                  By accessing and using the ATSAS website and services, you agree to be bound by these Terms and Conditions. If you do not agree, please do not use our services.
                 </p>
               </section>
 
               <section>
                 <h2 className="text-2xl font-semibold text-dark-grey mb-4">2. Company Information</h2>
                 <p className="text-mid-grey leading-relaxed">
-                  LuxeLeather Ltd is a company registered in England and Wales.<br />
+                  ATSAS Ltd is a company registered in England and Wales.<br />
                   <strong>Registered Address:</strong> 123 Leather Lane, Shoreditch, London E1 6AN, UK<br />
                   <strong>Company Number:</strong> 12345678<br />
                   <strong>VAT Number:</strong> GB123456789
@@ -130,7 +130,7 @@ export default function TermsPage() {
                 <h2 className="text-2xl font-semibold text-dark-grey mb-4">13. Contact</h2>
                 <p className="text-mid-grey leading-relaxed">
                   For questions about these Terms, contact us at:<br />
-                  <strong>Email:</strong> legal@luxeleather.co.uk<br />
+                  <strong>Email:</strong> legal@atsas.co.uk<br />
                   <strong>Phone:</strong> +44 20 7946 0958
                 </p>
               </section>

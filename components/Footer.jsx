@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import logo from "@/public/img/logo.png";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -12,9 +14,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold mb-4 tracking-widest">
-              Luxe<span className="font-light">Leather</span>
-            </h3>
+            <Link href="/" className="inline-block mb-6 h-16 w-32 relative">
+              <Image
+                src={logo}
+                alt="ATSAS Logo"
+                fill
+                className="object-contain object-left"
+              />
+            </Link>
             <p className="text-sm text-off-white/70 leading-relaxed mb-6">
               Premium bespoke leather jacket manufacturing for elite brands and discerning individuals since 2026.
             </p>
@@ -71,21 +78,17 @@ export default function Footer() {
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 text-gold flex-shrink-0" />
-                <span className="text-sm text-off-white/70">orders@luxeleather.co.uk</span>
+                <span className="text-sm text-off-white/70">orders@atsas.co.uk</span>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-off-white/10 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <p className="text-xs text-off-white/50">
-            © {currentYear} LuxeLeather Ltd. All rights reserved. Registered in England & Wales.
+        <div className="border-t border-off-white/10 pt-8 flex flex-col items-center justify-center">
+          <p className="text-xs text-off-white/50 text-center">
+            © {currentYear} ATSAS Ltd. All rights reserved. Registered in England & Wales.
           </p>
-          <div className="flex items-center space-x-6">
-            <img src="/badges/ssl.svg" alt="SSL Secure" className="h-8 opacity-70" onError={(e) => e.target.style.display = 'none'} />
-            <img src="/badges/gdpr.svg" alt="GDPR Compliant" className="h-8 opacity-70" onError={(e) => e.target.style.display = 'none'} />
-          </div>
         </div>
       </div>
     </footer>

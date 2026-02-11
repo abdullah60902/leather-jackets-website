@@ -3,12 +3,21 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useState, useEffect } from "react";
 
 export default function ConfigSummary({ config, isOpen, onToggle }) {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    setIsDesktop(window.innerWidth >= 1024);
+    const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const calculateTotal = () => {
     let total = config.jacketType?.basePrice || 0;
     total += config.leatherType?.priceModifier || 0;
-    total += config.finish?.priceModifier || 0;
     total += config.stitching?.priceModifier || 0;
     total += config.hardware?.priceModifier || 0;
     total += config.collar?.priceModifier || 0;
@@ -29,7 +38,7 @@ export default function ConfigSummary({ config, isOpen, onToggle }) {
 
       {/* Desktop Sidebar */}
       <AnimatePresence>
-        {(isOpen || window.innerWidth >= 1024) && (
+        {(isOpen || isDesktop) && (
           <motion.div
             initial={{ x: 400, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}

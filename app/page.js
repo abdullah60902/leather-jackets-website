@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
+import FloatingActions from "@/components/ui/FloatingActions";
 
 export default function Home() {
   const features = [
@@ -135,7 +136,7 @@ export default function Home() {
             <div className="relative z-10">
               <h2 className="text-4xl md:text-6xl font-light mb-8">Ready to define your <br/><span className="font-serif italic text-gold font-normal">Brand Identity?</span></h2>
               <p className="text-off-white/60 mb-12 max-w-2xl mx-auto text-lg font-light">
-                Join 500+ global brands who trust LuxeLeather for their premium manufacturing needs. 
+                Join 500+ global brands who trust ATSAS for their premium manufacturing needs. 
                 Experience the heritage of craftsmanship.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-6">
@@ -151,6 +152,7 @@ export default function Home() {
         </div>
       </section>
 
+      <FloatingActions />
       <Footer />
     </main>
   );

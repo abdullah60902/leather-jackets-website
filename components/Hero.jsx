@@ -49,7 +49,7 @@ export default function Hero() {
         <div className="absolute bottom-[20%] right-[10%] w-96 h-96 bg-gold/5 rounded-full blur-[120px] animate-pulse delay-1000" />
       </div>
 
-      <div className="container relative z-10 px-6 mx-auto">
+      <div className="container relative z-10 px-6 mx-auto pt-40 md:pt-0">
         <div className="max-w-4xl">
           <motion.div
             variants={containerVariants}
@@ -57,12 +57,7 @@ export default function Hero() {
             animate="visible"
             className="space-y-8"
           >
-            <motion.div variants={itemVariants} className="flex items-center space-x-4">
-              <span className="w-12 h-[1px] bg-gold" />
-              <span className="text-gold uppercase tracking-[0.4em] text-[10px] font-bold">
-                Elite Leather Manufacturing
-              </span>
-            </motion.div>
+            {/* Logo Slogan Removed to avoid conflict with Navbar logo */}
 
             <motion.h1
               variants={itemVariants}
@@ -125,7 +120,7 @@ export default function Hero() {
         transition={{ delay: 1.5 }}
         className="absolute bottom-12 right-12 hidden lg:flex flex-col items-center gap-6"
       >
-        <span className="text-[10px] uppercase tracking-[0.5em] text-white/30 [writing-mode:vertical-lr]">Discover Luxe</span>
+        <span className="text-[10px] uppercase tracking-[0.5em] text-white/30 [writing-mode:vertical-lr]">Discover ATSAS</span>
         <div className="w-[1px] h-20 bg-gradient-to-b from-gold to-transparent opacity-40" />
       </motion.div>
     </section>

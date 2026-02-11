@@ -16,7 +16,7 @@ export default function PrivacyPage() {
               <section>
                 <h2 className="text-2xl font-semibold text-dark-grey mb-4">1. Introduction</h2>
                 <p className="text-mid-grey leading-relaxed">
-                  LuxeLeather Ltd ("we", "our", "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services, in compliance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.
+                  ATSAS Ltd ("we", "our", "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services, in compliance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.
                 </p>
               </section>
 
@@ -118,7 +118,7 @@ export default function PrivacyPage() {
                   For any privacy-related questions or to exercise your rights, contact our Data Protection Officer at:
                 </p>
                 <p className="text-mid-grey mt-4">
-                  <strong>Email:</strong> privacy@luxeleather.co.uk<br />
+                  <strong>Email:</strong> privacy@atsas.co.uk<br />
                   <strong>Address:</strong> 123 Leather Lane, Shoreditch, London E1 6AN, UK<br />
                   <strong>Phone:</strong> +44 20 7946 0958
                 </p>

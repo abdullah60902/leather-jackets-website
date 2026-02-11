@@ -5,6 +5,6 @@ export default function robots() {
       allow: '/',
       disallow: ['/api/', '/admin/'],
     },
-    sitemap: 'https://luxeleather.co.uk/sitemap.xml',
+    sitemap: 'https://atsas.co.uk/sitemap.xml',
   };
 }

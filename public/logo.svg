@@ -1,0 +1,15 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cleaned Professional Logo - Only the Icon and Name -->
+  
+  <!-- Icon Group -->
+  <g transform="translate(50, 20)">
+    <!-- Stylized gold 'U' icon -->
+    <path d="M18 10C10 15 8 35 12 50C16 65 30 75 45 75C60 75 72 65 74 50L75 5H60L58 50C57 60 50 65 42 65C34 65 28 60 28 50C28 40 32 25 32 15L18 10Z" fill="#D4AF37"/>
+    
+    <!-- Under-icon text 'atsas' -->
+    <text x="45" y="92" text-anchor="middle" fill="#D4AF37" font-family="serif" font-size="16" font-weight="bold" letter-spacing="0.1em">atsas</text>
+  </g>
+
+  <!-- Main Brand Name below -->
+  <text x="100" y="150" text-anchor="middle" fill="white" font-family="'Outfit', sans-serif" font-size="40" font-weight="900" letter-spacing="0.1em">ATSAS</text>
+</svg>

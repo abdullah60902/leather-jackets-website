@@ -1,4 +1,4 @@
-# 🧥 LuxeLeather - Luxury Leather Jacket Manufacturing SaaS
+# 🧥 ATSAS - Luxury Leather Jacket Manufacturing SaaS
 
 **Enterprise-Grade Custom Leather Jacket Manufacturing Platform**
 
@@ -164,7 +164,7 @@ Create `.env.local`:
 ```env
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_...
 STRIPE_SECRET_KEY=sk_test_...
-NEXT_PUBLIC_SITE_URL=https://luxeleather.co.uk
+NEXT_PUBLIC_SITE_URL=https://atsas.co.uk
 ```
 
 ---
@@ -258,7 +258,7 @@ leather-jackets/
 
 ## 📞 Support
 
-**Email:** orders@luxeleather.co.uk  
+**Email:** orders@atsas.co.uk  
 **Phone:** +44 20 7946 0958  
 **Address:** 123 Leather Lane, Shoreditch, London E1 6AN, UK
 
@@ -266,7 +266,7 @@ leather-jackets/
 
 ## 📜 License
 
-Copyright © 2026 LuxeLeather Ltd. All rights reserved.
+Copyright © 2026 ATSAS Ltd. All rights reserved.
 
 ---
 
