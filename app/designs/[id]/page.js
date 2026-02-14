@@ -82,7 +82,7 @@ export default function DesignDetailPage() {
     };
 
     addToCart(cartItem);
-    router.push("/checkout");
+    router.push("/contact");
   };
 
   return (
@@ -146,11 +146,6 @@ export default function DesignDetailPage() {
               <h1 className="text-3xl md:text-4xl font-light text-dark-grey mb-2">{jacket.name}</h1>
               <p className="text-lg text-mid-grey mb-6">{jacket.description}</p>
               
-              <div className="flex items-baseline space-x-3 mb-8">
-                <span className="text-4xl font-light text-dark-grey">£{jacket.price}</span>
-                <span className="text-sm text-mid-grey">per jacket</span>
-              </div>
-
               <form onSubmit={handleSubmit} className="space-y-8">
                 {/* Color Selection */}
                 <div>
@@ -318,13 +313,9 @@ export default function DesignDetailPage() {
 
                 {/* Summary & Submit */}
                 <div className="bg-dark-grey text-white rounded-lg p-6">
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center justify-between mb-6 pb-6 border-b border-white/10">
                     <span className="text-off-white/70">Total Quantity:</span>
                     <span className="text-2xl font-semibold">{totalQuantity} jackets</span>
-                  </div>
-                  <div className="flex items-center justify-between mb-6 pb-6 border-b border-white/10">
-                    <span className="text-off-white/70">Estimated Total:</span>
-                    <span className="text-3xl font-light">£{totalPrice.toLocaleString()}</span>
                   </div>
                   <Button
                     type="submit"
@@ -333,11 +324,8 @@ export default function DesignDetailPage() {
                     className="w-full bg-gold hover:bg-gold-light border-gold"
                     disabled={!meetsMinimum}
                   >
-                    {meetsMinimum ? "Proceed to Checkout" : `Add ${10 - totalQuantity} More to Order`}
+                    {meetsMinimum ? "Get in Touch" : `Add ${10 - totalQuantity} More to Request Quote`}
                   </Button>
-                  <p className="text-xs text-off-white/50 text-center mt-3">
-                    VAT will be calculated at checkout
-                  </p>
                 </div>
               </form>
             </div>

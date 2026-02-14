@@ -45,11 +45,10 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-wider mb-4">Quick Links</h4>
             <ul className="space-y-3">
-              <li><Link href="/builder" className="text-sm text-off-white/70 hover:text-gold transition-colors">Custom Builder</Link></li>
+              <li><Link href="/designs" className="text-sm text-off-white/70 hover:text-gold transition-colors">Ready-Made Designs</Link></li>
+              <li><Link href="/customization" className="text-sm text-off-white/70 hover:text-gold transition-colors">Customization Options</Link></li>
               <li><Link href="/bulk" className="text-sm text-off-white/70 hover:text-gold transition-colors">Bulk Orders</Link></li>
-              <li><Link href="/draw" className="text-sm text-off-white/70 hover:text-gold transition-colors">Design Tool</Link></li>
               <li><Link href="/about" className="text-sm text-off-white/70 hover:text-gold transition-colors">About Us</Link></li>
-              <li><Link href="/blog" className="text-sm text-off-white/70 hover:text-gold transition-colors">Blog</Link></li>
             </ul>
           </div>
 
@@ -60,7 +59,6 @@ export default function Footer() {
               <li><Link href="/privacy" className="text-sm text-off-white/70 hover:text-gold transition-colors">Privacy Policy</Link></li>
               <li><Link href="/terms" className="text-sm text-off-white/70 hover:text-gold transition-colors">Terms & Conditions</Link></li>
               <li><Link href="/faq" className="text-sm text-off-white/70 hover:text-gold transition-colors">FAQ</Link></li>
-              <li><Link href="/track" className="text-sm text-off-white/70 hover:text-gold transition-colors">Order Tracking</Link></li>
             </ul>
           </div>
 

@@ -8,19 +8,19 @@ import Footer from "@/components/Footer";
 
 const faqs = [
   {
-    category: "Orders & Pricing",
+    category: "Orders",
     questions: [
       {
         q: "What is the minimum order quantity (MOQ)?",
         a: "Our MOQ is 10 jackets. This allows small brands and startups to access premium manufacturing without massive upfront investment."
       },
       {
-        q: "How is pricing calculated?",
-        a: "Pricing is based on jacket type, leather selection, customization options, and quantity. Volume discounts range from 5% (25+ units) to 25% (500+ units). Use our configurator for instant quotes."
+        q: "How can I get a quote?",
+        a: "Quotes are provided based on your specific requirements including jacket type, leather choice, and total quantity. Use our design tool to build your jacket and submit for a personalized quote."
       },
       {
-        q: "Do you charge for samples?",
-        a: "Sample jackets are charged at full price but the cost is credited toward your bulk order if placed within 60 days."
+        q: "Can I order a sample?",
+        a: "Yes, sample jackets can be manufactured for your review. Please contact our team to discuss sample requests and evaluation."
       },
     ]
   },
@@ -29,12 +29,9 @@ const faqs = [
     questions: [
       {
         q: "What is the production timeline?",
-        a: "Standard production is 4-6 weeks from order confirmation. Express production (2-3 weeks) is available for an additional 30% fee."
+        a: "Standard production is 4-6 weeks from order confirmation. Express production options (2-3 weeks) are available upon request."
       },
-      {
-        q: "Can I track my order?",
-        a: "Yes! You'll receive a unique tracking ID and can monitor progress through our Order Tracking portal with real-time updates."
-      },
+
       {
         q: "What if I need changes after ordering?",
         a: "Minor changes can be made within 48 hours of order placement. Major changes may incur fees and extend production time."
@@ -54,7 +51,7 @@ const faqs = [
       },
       {
         q: "What customization options are available?",
-        a: "You can customize: jacket type, leather type, finish, color, stitching, hardware, collar, lining, weather resistance, and add custom designs via our draw tool."
+        a: "You can customize: jacket type, leather type, finish, color, stitching, hardware, collar, lining, and weather resistance."
       },
     ]
   },
@@ -80,7 +77,7 @@ const faqs = [
     questions: [
       {
         q: "Where do you ship?",
-        a: "We ship worldwide. UK delivery is free for orders over £2,000. International shipping costs are calculated at checkout."
+        a: "We ship worldwide. UK delivery is free for all orders. International shipping is calculated during the quoting process."
       },
       {
         q: "How are jackets packaged?",

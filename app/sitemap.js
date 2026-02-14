@@ -4,22 +4,36 @@ export default function sitemap() {
   const routes = [
     '',
     '/designs',
-    '/builder',
     '/bulk',
-    '/draw',
+    '/customization',
     '/about',
     '/contact',
+    '/blog',
     '/faq',
     '/privacy',
     '/terms',
-    '/track',
-    '/blog',
   ];
 
-  return routes.map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: route === '' ? 'daily' : 'weekly',
-    priority: route === '' ? 1.0 : route === '/builder' ? 0.9 : 0.7,
-  }));
+  return routes.map((route) => {
+    let priority = 0.5;
+    let changeFrequency = 'monthly';
+
+    if (route === '') {
+      priority = 1.0;
+      changeFrequency = 'daily';
+    } else if (['/designs', '/bulk', '/customization'].includes(route)) {
+        priority = 0.9;
+        changeFrequency = 'weekly';
+    } else if (['/blog', '/about'].includes(route)) {
+        priority = 0.8;
+        changeFrequency = 'weekly';
+    }
+
+    return {
+      url: `${baseUrl}${route}`,
+      lastModified: new Date(),
+      changeFrequency,
+      priority,
+    };
+  });
 }

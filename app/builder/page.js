@@ -139,7 +139,7 @@ export default function BuilderPage() {
     };
 
     addToCart(cartItem);
-    router.push("/checkout");
+    router.push("/contact");
   };
 
   const pageVariants = {
@@ -425,7 +425,7 @@ export default function BuilderPage() {
                       </Button>
                     ) : (
                       <Button variant="primary" onClick={handleSubmit} disabled={!meetsMinimum}>
-                        Submit Custom Order
+                        Get in Touch
                       </Button>
                     )}
                   </div>

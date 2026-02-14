@@ -95,28 +95,15 @@ export default function CheckoutPage() {
                 </div>
               </div>
 
-              <div className="space-y-3 mb-6 pb-6 border-b border-beige">
+              <div className="space-y-3 mb-8 pb-6 border-b border-beige">
                 <div className="flex justify-between text-sm">
                   <span className="text-mid-grey">Quantity</span>
                   <span className="font-medium text-dark-grey">{cart.totalQuantity} items</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-mid-grey">Subtotal</span>
-                  <span className="font-medium text-dark-grey">£{cart.totalPrice?.toLocaleString()}</span>
-                </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-mid-grey">Shipping (UK Standard)</span>
+                  <span className="text-mid-grey">Shipping</span>
                   <span className="font-medium text-green-600">Free</span>
                 </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-mid-grey">VAT (20%)</span>
-                  <span className="font-medium text-dark-grey">Included</span>
-                </div>
-              </div>
-
-              <div className="flex justify-between items-center mb-8">
-                <span className="text-lg font-semibold text-dark-grey">Total to Pay</span>
-                <span className="text-3xl font-light text-gold">£{cart.totalPrice?.toLocaleString()}</span>
               </div>
 
               <div className="bg-cream/50 rounded-lg p-4 flex items-start space-x-3">
@@ -234,7 +221,7 @@ export default function CheckoutPage() {
                         Processing Payment...
                       </span>
                     ) : (
-                      `Pay £${cart.totalPrice?.toLocaleString()}`
+                      "Confirm Order & Request Quote"
                     )}
                   </Button>
                 </div>

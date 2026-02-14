@@ -35,7 +35,7 @@ export default function Hero() {
       >
         <img
           src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&q=80&w=1920"
-          alt="Luxury Leather Craftsmanship"
+          alt="Bespoke Leather Jacket Manufacturing Workshop London"
           className="w-full h-full object-cover"
         />
         {/* Luxury Vignette & Overlay */}
@@ -49,44 +49,44 @@ export default function Hero() {
         <div className="absolute bottom-[20%] right-[10%] w-96 h-96 bg-gold/5 rounded-full blur-[120px] animate-pulse delay-1000" />
       </div>
 
-      <div className="container relative z-10 px-6 mx-auto pt-40 md:pt-0">
+      <div className="container relative z-10 px-6 sm:px-12 mx-auto pt-24 md:pt-0">
         <div className="max-w-4xl">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="space-y-8"
+            className="space-y-5 md:space-y-8"
           >
             {/* Logo Slogan Removed to avoid conflict with Navbar logo */}
 
             <motion.h1
               variants={itemVariants}
-              className="font-sans font-light text-6xl md:text-8xl lg:text-9xl leading-[0.9] text-white tracking-tighter"
+              className="font-sans font-light text-3xl sm:text-5xl md:text-7xl lg:text-8xl leading-[0.95] text-white tracking-tighter"
             >
-              Crafted for <br />
-              <span className="font-serif italic font-normal text-gold">Dominance</span>
+              The Premier <br />
+              <span className="font-serif italic font-normal text-gold">Leather Manufacturer</span>
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
-              className="text-lg md:text-xl text-off-white/80 max-w-xl font-light leading-relaxed tracking-wide italic"
+              className="text-sm sm:text-base md:text-lg text-off-white/80 max-w-lg font-light leading-relaxed tracking-wide italic"
             >
-              "Where heritage meets innovation. We build jackets that don't just protect, they legacy."
+              "World-class bespoke leather jacket production for luxury brands and startups. Crafted in London, worn globally."
             </motion.p>
 
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row items-center gap-6 pt-6"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 md:gap-5 pt-3 md:pt-5"
             >
               <a href="/designs" className="w-full sm:w-auto">
-                <Button variant="primary" size="lg" className="w-full sm:w-auto bg-gold border-gold text-dark-grey hover:bg-white hover:border-white transition-all duration-500 py-6 px-10 text-base font-semibold group">
+                <Button variant="primary" size="lg" className="w-full sm:w-auto bg-gold border-gold text-dark-grey hover:bg-white hover:border-white transition-all duration-500 py-3 md:py-5 px-9 text-[13px] md:text-sm font-semibold group flex items-center justify-center">
                   EXPLORE DESIGNS
                   <motion.span animate={{ x: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1.5 }} className="inline-block ml-2">→</motion.span>
                 </Button>
               </a>
-              <a href="/builder" className="w-full sm:w-auto">
-                <Button variant="secondary" size="lg" className="w-full sm:w-auto border-white/30 text-white backdrop-blur-md hover:bg-white hover:text-dark-grey transition-all duration-500 py-6 px-10 text-base font-light">
-                  CUSTOM BUILDER
+              <a href="/customization" className="w-full sm:w-auto">
+                <Button variant="secondary" size="lg" className="w-full sm:w-auto border-white/20 text-white backdrop-blur-md hover:bg-white hover:text-dark-grey transition-all duration-500 py-3 md:py-5 px-9 text-[13px] md:text-sm font-light flex items-center justify-center">
+                  CUSTOMIZATION OPTIONS
                 </Button>
               </a>
             </motion.div>
@@ -94,19 +94,19 @@ export default function Hero() {
             {/* Micro Stats */}
             <motion.div
               variants={itemVariants}
-              className="grid grid-cols-3 gap-8 pt-12 border-t border-white/10 max-w-2xl"
+              className="grid grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-5 md:gap-10 pt-8 border-t border-white/5 max-w-2xl"
             >
-              <div>
-                <p className="text-gold font-serif text-2xl">MOQ 10</p>
-                <p className="text-white/40 text-[10px] uppercase tracking-widest mt-1">Minimum Order</p>
+              <div className="space-y-0.5">
+                <p className="text-gold font-serif text-lg sm:text-xl md:text-2xl">MOQ 10</p>
+                <p className="text-white/30 text-[7px] sm:text-[9px] uppercase tracking-[0.2em]">Minimum Batch</p>
               </div>
-              <div>
-                <p className="text-gold font-serif text-2xl">4-6 WK</p>
-                <p className="text-white/40 text-[10px] uppercase tracking-widest mt-1">Lead Time</p>
+              <div className="space-y-0.5">
+                <p className="text-gold font-serif text-lg sm:text-xl md:text-2xl">4-6 WK</p>
+                <p className="text-white/30 text-[7px] sm:text-[9px] uppercase tracking-[0.2em]">Production Cycle</p>
               </div>
-              <div>
-                <p className="text-gold font-serif text-2xl">UK BASE</p>
-                <p className="text-white/40 text-[10px] uppercase tracking-widest mt-1">Production</p>
+              <div className="hidden lg:block space-y-0.5">
+                <p className="text-gold font-serif text-lg sm:text-xl md:text-2xl">UK BASE</p>
+                <p className="text-white/30 text-[7px] sm:text-[9px] uppercase tracking-[0.2em]">Quality Control</p>
               </div>
             </motion.div>
           </motion.div>

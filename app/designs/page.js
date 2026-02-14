@@ -86,14 +86,11 @@ export default function DesignsPage() {
                     </p>
                     
                     <div className="flex items-center justify-between pt-4 border-t border-beige">
-                      <div>
-                        <p className="text-xs text-mid-grey mb-1">From</p>
-                        <p className="text-2xl font-semibold text-dark-grey">£{jacket.price}</p>
-                      </div>
-                      <Button variant="primary" size="sm">
-                        <ShoppingBag className="w-4 h-4 mr-2" />
-                        Order
-                      </Button>
+                      <Link href="/contact" className="w-full">
+                        <Button variant="primary" size="sm" className="w-full">
+                          Get in Touch
+                        </Button>
+                      </Link>
                     </div>
                   </div>
                 </Link>
@@ -114,11 +111,11 @@ export default function DesignsPage() {
               Don't See What You're Looking For?
             </h2>
             <p className="text-off-white/70 mb-8 max-w-2xl mx-auto">
-              Create your own custom design from scratch with our advanced configurator
+              Learn about our professional customization capabilities including embroidery, hardware, and premium treatments.
             </p>
-            <Link href="/builder">
-              <Button variant="primary" size="lg" className="bg-gold hover:bg-gold-light border-gold">
-                Create Custom Design
+            <Link href="/customization">
+              <Button variant="primary" size="lg" className="bg-gold hover:bg-gold-light border-gold text-dark-grey">
+                Explore Customization Options
               </Button>
             </Link>
           </div>

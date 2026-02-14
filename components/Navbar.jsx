@@ -3,11 +3,16 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { ShoppingBag, Search, Menu, X, User } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import logo from "@/public/img/logo.png";
 import { cn } from "@/lib/utils";
+import { Button } from "./ui/Button";
+
 export default function Navbar() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -19,11 +24,14 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Force scrolled state (white background/dark text) if not on home page
+  const shouldShowSolid = scrolled || !isHome;
+
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Ready-Made Designs", href: "/designs" },
-    { name: "Custom Builder", href: "/builder" },
     { name: "Bulk Orders", href: "/bulk" },
+    { name: "Customization", href: "/customization" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ];
@@ -36,7 +44,7 @@ export default function Navbar() {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className={cn(
           "fixed top-0 left-0 w-full z-50 transition-all duration-500",
-          scrolled
+          shouldShowSolid
             ? "bg-white/90 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.03)] border-b border-black/5 py-2"
             : "bg-transparent py-4"
         )}
@@ -44,68 +52,66 @@ export default function Navbar() {
         <div className="container mx-auto px-8 flex items-center justify-between">
           <Link
             href="/"
-            className="flex items-center group relative z-10 transition-transform duration-500 hover:scale-[1.02]"
+            className="flex items-center group relative z-10 transition-transform duration-500 hover:scale-[1.02] shrink-0"
           >
-            <div className="relative w-32 h-12 md:w-56 md:h-16">
+            <div className="relative w-28 h-10 md:w-36 md:h-12 lg:w-44 lg:h-14">
               <Image
                 src={logo}
                 alt="ATSAS Logo"
                 fill
                 className={cn(
                   "object-contain object-left transition-all duration-500 ease-out",
-                  scrolled ? "brightness-0" : ""
+                  shouldShowSolid ? "brightness-0" : ""
                 )}
                 priority
               />
             </div>
           </Link>
-
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center space-x-10">
+          <div className="hidden lg:flex items-center space-x-4 xl:space-x-8">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 className={cn(
-                  "text-[13px] font-heading font-semibold uppercase tracking-[0.15em] transition-all duration-300 relative group py-2",
-                  scrolled ? "text-dark-grey/80 hover:text-gold" : "text-white/70 hover:text-white"
+                  "text-[10px] xl:text-[12px] font-heading font-semibold uppercase tracking-wider xl:tracking-[0.12em] transition-all duration-300 relative group py-2 whitespace-nowrap",
+                  shouldShowSolid ? "text-dark-grey/80 hover:text-gold" : "text-white/70 hover:text-white"
                 )}
               >
                 {link.name}
                 <motion.span
                   className={cn(
                     "absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 transition-all duration-300 group-hover:w-full",
-                    scrolled ? "bg-gold" : "bg-white"
+                    shouldShowSolid ? "bg-gold" : "bg-white"
                   )}
                 />
               </Link>
             ))}
           </div>
 
-          {/* Actions */}
-          <div className={cn(
-            "hidden md:flex items-center space-x-8 transition-colors duration-500",
-            scrolled ? "text-dark-grey" : "text-white"
-          )}>
-            <button className="p-2 hover:text-gold transition-all duration-300 hover:scale-110">
-              <Search className="w-[18px] h-[18px]" />
-            </button>
-            <button className="p-2 hover:text-gold transition-all duration-300 hover:scale-110">
-              <User className="w-[18px] h-[18px]" />
-            </button>
-            <button className="p-2 hover:text-gold transition-all duration-300 hover:scale-110 relative group">
-              <ShoppingBag className="w-[18px] h-[18px]" />
-              <span className="absolute top-0 right-0 bg-gold text-white text-[9px] w-4 h-4 flex items-center justify-center rounded-full font-bold shadow-sm group-hover:scale-110 transition-transform">
-                0
-              </span>
-            </button>
+          {/* Actions - Replaced with Get in Touch */}
+          <div className="hidden lg:flex items-center">
+            <Link href="/contact">
+              <Button
+                variant="primary"
+                size="sm"
+                className={cn(
+                  "px-6 py-2.5 rounded-full text-[11px] font-bold tracking-[0.1em] transition-all duration-500",
+                  shouldShowSolid
+                    ? "bg-dark-grey text-gold hover:bg-gold hover:text-dark-grey"
+                    : "bg-gold text-dark-grey hover:bg-white border-transparent"
+                )}
+              >
+                GET IN TOUCH
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Toggle */}
           <button
             className={cn(
               "lg:hidden p-2 rounded-full transition-all duration-300",
-              scrolled ? "text-dark-grey hover:bg-black/5" : "text-white hover:bg-white/10"
+              shouldShowSolid ? "text-dark-grey hover:bg-black/5" : "text-white hover:bg-white/10"
             )}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
@@ -159,15 +165,12 @@ export default function Navbar() {
                 ))}
               </div>
 
-              <div className="mt-auto pt-10 border-t border-gray-100 flex justify-between items-center">
-                <div className="flex space-x-6">
-                  <Search className="w-5 h-5 text-dark-grey" />
-                  <User className="w-5 h-5 text-dark-grey" />
-                </div>
-                <div className="relative">
-                  <ShoppingBag className="w-6 h-6 text-dark-grey" />
-                  <span className="absolute -top-1 -right-1 bg-gold text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">0</span>
-                </div>
+              <div className="mt-auto pt-10 border-t border-gray-100">
+                <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
+                  <Button variant="primary" size="lg" className="w-full bg-gold border-gold text-dark-grey hover:bg-dark-grey hover:text-white transition-all duration-300">
+                    GET IN TOUCH
+                  </Button>
+                </Link>
               </div>
             </motion.div>
           </>

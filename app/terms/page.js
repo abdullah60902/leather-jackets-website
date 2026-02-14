@@ -37,7 +37,7 @@ export default function TermsPage() {
                 </p>
                 <ul className="list-disc pl-6 text-mid-grey space-y-2">
                   <li><strong>Minimum Order Quantity (MOQ):</strong> 10 jackets</li>
-                  <li><strong>Production Time:</strong> 4-6 weeks (standard), 2-3 weeks (express with 30% surcharge)</li>
+                  <li><strong>Production Time:</strong> 4-6 weeks (standard), 2-3 weeks (express available)</li>
                   <li><strong>Customization:</strong> All specifications must be finalized before production begins</li>
                 </ul>
               </section>
@@ -48,7 +48,6 @@ export default function TermsPage() {
                 <ul className="list-disc pl-6 text-mid-grey space-y-2 mb-4">
                   <li>All orders require a 50% deposit to commence production</li>
                   <li>Final 50% payment is due before shipment</li>
-                  <li>Prices are quoted in GBP and exclude VAT (20% will be added for UK customers)</li>
                 </ul>
 
                 <h3 className="text-xl font-medium text-dark-grey mb-3">Payment Methods</h3>
@@ -98,7 +97,7 @@ export default function TermsPage() {
               <section>
                 <h2 className="text-2xl font-semibold text-dark-grey mb-4">9. Shipping and Delivery</h2>
                 <ul className="list-disc pl-6 text-mid-grey space-y-2">
-                  <li>UK delivery is free for orders over £2,000</li>
+                  <li>UK delivery is free for all orders</li>
                   <li>International shipping costs are calculated at checkout</li>
                   <li>Delivery times are estimates and not guaranteed</li>
                   <li>Risk passes to you upon delivery</li>

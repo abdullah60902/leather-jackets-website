@@ -71,11 +71,11 @@ export default function ContactPage() {
                 <div>
                   <label className="block text-sm font-medium text-dark-grey mb-2">Estimated Quantity</label>
                   <select className="w-full px-4 py-3 border border-light-grey rounded-lg focus:outline-none focus:border-gold transition-colors">
-                    <option>10-24 jackets</option>
-                    <option>25-49 jackets</option>
-                    <option>50-99 jackets</option>
-                    <option>100-249 jackets</option>
-                    <option>250+ jackets</option>
+                    <option>10-24</option>
+                    <option>25-49</option>
+                    <option>50-99</option>
+                    <option>100-249</option>
+                    <option>250+</option>
                   </select>
                 </div>
 
@@ -145,18 +145,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Map Placeholder */}
-              <div className="bg-white rounded-lg shadow-card overflow-hidden h-64">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.4!2d-0.0759!3d51.5244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDMxJzI3LjgiTiAwwrAwNCczMy4yIlc!5e0!3m2!1sen!2suk!4v1234567890"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
+
             </motion.div>
           </div>
         </div>

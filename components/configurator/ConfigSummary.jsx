@@ -33,7 +33,7 @@ export default function ConfigSummary({ config, isOpen, onToggle }) {
         onClick={onToggle}
         className="lg:hidden fixed bottom-6 right-6 z-50 bg-dark-grey text-white px-6 py-3 rounded-full shadow-float font-medium"
       >
-        Summary · £{calculateTotal()}
+        View Summary
       </button>
 
       {/* Desktop Sidebar */}
@@ -60,13 +60,13 @@ export default function ConfigSummary({ config, isOpen, onToggle }) {
             {/* Summary Items */}
             <div className="space-y-4 mb-6">
               {config.jacketType && (
-                <SummaryItem label="Jacket Type" value={config.jacketType.name} price={config.jacketType.basePrice} />
+                <SummaryItem label="Jacket Type" value={config.jacketType.name} />
               )}
               {config.leatherType && (
-                <SummaryItem label="Leather" value={config.leatherType.name} price={config.leatherType.priceModifier} />
+                <SummaryItem label="Leather" value={config.leatherType.name} />
               )}
               {config.finish && (
-                <SummaryItem label="Finish" value={config.finish.name} price={config.finish.priceModifier} />
+                <SummaryItem label="Finish" value={config.finish.name} />
               )}
               {config.color && (
                 <div className="flex items-center justify-between text-sm">
@@ -81,30 +81,23 @@ export default function ConfigSummary({ config, isOpen, onToggle }) {
                 </div>
               )}
               {config.stitching && (
-                <SummaryItem label="Stitching" value={config.stitching.name} price={config.stitching.priceModifier} />
+                <SummaryItem label="Stitching" value={config.stitching.name} />
               )}
               {config.hardware && (
-                <SummaryItem label="Hardware" value={config.hardware.name} price={config.hardware.priceModifier} />
+                <SummaryItem label="Hardware" value={config.hardware.name} />
               )}
               {config.collar && (
-                <SummaryItem label="Collar" value={config.collar.name} price={config.collar.priceModifier} />
+                <SummaryItem label="Collar" value={config.collar.name} />
               )}
               {config.lining && (
-                <SummaryItem label="Lining" value={config.lining.name} price={config.lining.priceModifier} />
+                <SummaryItem label="Lining" value={config.lining.name} />
               )}
               {config.weatherResistance && config.weatherResistance.id !== "none" && (
-                <SummaryItem label="Weather Protection" value={config.weatherResistance.name} price={config.weatherResistance.priceModifier} />
+                <SummaryItem label="Weather Protection" value={config.weatherResistance.name} />
               )}
             </div>
 
-            {/* Total */}
-            <div className="border-t border-beige pt-4">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-mid-grey">Subtotal</span>
-                <span className="text-lg font-semibold text-dark-grey">£{calculateTotal()}</span>
-              </div>
-              <p className="text-xs text-mid-grey">VAT calculated at checkout</p>
-            </div>
+            {/* Total Removed */}
           </motion.div>
         )}
       </AnimatePresence>
@@ -112,13 +105,12 @@ export default function ConfigSummary({ config, isOpen, onToggle }) {
   );
 }
 
-function SummaryItem({ label, value, price }) {
+function SummaryItem({ label, value }) {
   return (
     <div className="flex items-center justify-between text-sm">
       <span className="text-mid-grey">{label}</span>
       <div className="text-right">
         <p className="font-medium text-dark-grey">{value}</p>
-        {price > 0 && <p className="text-xs text-gold">+£{price}</p>}
       </div>
     </div>
   );

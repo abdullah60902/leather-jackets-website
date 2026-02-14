@@ -26,10 +26,10 @@ export default function NotFound() {
                 Back to Home
               </Button>
             </Link>
-            <Link href="/builder">
+            <Link href="/customization">
               <Button variant="secondary" size="lg">
                 <Search className="w-4 h-4 mr-2" />
-                Start Designing
+                Explore Options
               </Button>
             </Link>
           </div>
@@ -37,7 +37,7 @@ export default function NotFound() {
           <div className="mt-16 pt-16 border-t border-beige">
             <p className="text-sm text-mid-grey mb-4">Popular Pages:</p>
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <Link href="/builder" className="text-sm text-dark-grey hover:text-gold transition-colors">Custom Builder</Link>
+              <Link href="/customization" className="text-sm text-dark-grey hover:text-gold transition-colors">Customization Options</Link>
               <span className="text-light-grey">•</span>
               <Link href="/bulk" className="text-sm text-dark-grey hover:text-gold transition-colors">Bulk Orders</Link>
               <span className="text-light-grey">•</span>

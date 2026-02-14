@@ -59,16 +59,6 @@ export default function SelectionCard({
         {item[descKey] && (
           <p className="text-sm text-mid-grey mb-3">{item[descKey]}</p>
         )}
-        {showPrice && item.priceModifier !== undefined && (
-          <p className="text-sm font-medium text-gold">
-            {item.priceModifier === 0 ? "Included" : `+£${item.priceModifier}`}
-          </p>
-        )}
-        {showPrice && item.basePrice !== undefined && (
-          <p className="text-lg font-semibold text-dark-grey">
-            From £{item.basePrice}
-          </p>
-        )}
       </div>
     </motion.div>
   );
