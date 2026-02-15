@@ -30,7 +30,7 @@ const blogPosts = [
   {
     id: 3,
     title: "How to Choose the Right Leather Type for Your Brand",
-    excerpt: "A comprehensive comparison of nappa, full-grain, suede, and patent leather.",
+    excerpt: "A comprehensive comparison of nappa, genuine, suede, and patent leather.",
     author: "Marcus Thompson",
     date: "2026-02-01",
     category: "Buying Guide",

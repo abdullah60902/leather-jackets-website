@@ -29,7 +29,7 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Ready-Made Designs", href: "/designs" },
+    { name: "Our Designs", href: "/designs" },
     { name: "Bulk Orders", href: "/bulk" },
     { name: "Customization", href: "/customization" },
     { name: "About", href: "/about" },

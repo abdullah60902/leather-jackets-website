@@ -22,7 +22,7 @@ A world-class, £1M+ valuation SaaS platform for bespoke leather jacket manufact
 - **Automotive-level configurator** with 6-step wizard
 - Real-time price calculation
 - Jacket types: Classic Biker, Bomber, Café Racer, Aviator
-- Leather types: Nappa, Full-Grain, Suede, Patent
+- Leather types: Nappa, Genuine, Suede, Patent
 - Customization: Finish, Color, Stitching, Hardware, Collar, Lining, Weather Resistance
 - **Animated step transitions** with progress indicator
 - **Live configuration summary** sidebar

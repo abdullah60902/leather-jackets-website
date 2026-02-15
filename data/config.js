@@ -32,13 +32,13 @@ export const jacketTypes = [
 export const leatherTypes = [
   {
     id: "nappa",
-    name: "Nappa Leather",
+    name: "Genuine Leather",
     description: "Soft, supple, premium quality",
     priceModifier: 0,
   },
   {
     id: "full-grain",
-    name: "Full-Grain",
+    name: "Genuine Leather",
     description: "Durable, natural texture",
     priceModifier: 50,
   },
@@ -50,7 +50,7 @@ export const leatherTypes = [
   },
   {
     id: "patent",
-    name: "Patent Leather",
+    name: "Leather",
     description: "High-gloss, statement finish",
     priceModifier: 100,
   },

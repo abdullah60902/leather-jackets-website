@@ -19,7 +19,7 @@ export default function AboutPage() {
             className="max-w-4xl mx-auto text-center"
           >
             <h1 className="text-4xl md:text-6xl font-light text-dark-grey mb-6">
-              Crafting Excellence <span className="text-gradient-gold font-normal">Since 2026</span>
+              Crafting Excellence <span className="text-gradient-gold font-normal">Since 2010</span>
             </h1>
             <p className="text-xl text-mid-grey leading-relaxed">
               We are a UK-based luxury leather jacket manufacturer specializing in bespoke production for brands, companies, and discerning individuals worldwide.
@@ -40,13 +40,16 @@ export default function AboutPage() {
             >
               <h2 className="text-3xl font-light text-dark-grey mb-6">Our Story</h2>
               <p className="text-mid-grey leading-relaxed mb-4">
-                Founded in the heart of London's creative district, ATSAS was born from a simple belief: every brand deserves access to world-class leather jacket manufacturing without compromising on quality or customization.
+                Founded in 2010, ATSAS began its journey by exclusively selling genuine leather jackets at Camden Market in London and has evolved into a vertically integrated, UK-based leather and apparel manufacturing enterprise with large scale production operations in Pakistan — one of the world’s most recognized hubs for premium leather craftsmanship.
               </p>
               <p className="text-mid-grey leading-relaxed mb-4">
-                Our team of master craftsmen combines traditional leatherworking techniques with cutting-edge technology to deliver jackets that are not just garments, but statements of identity and excellence.
+                Today, ATSAS operates as a strategic manufacturing partner to fashion brands, retailers, and private label clients across international markets. Our core strength lies in combining British design standards and commercial insight with Pakistan’s deep rooted expertise in leather production and apparel manufacturing. This synergy enables us to deliver globally competitive pricing without compromising on quality, consistency, or ethical production standards.
+              </p>
+              <p className="text-mid-grey leading-relaxed mb-4">
+                Our manufacturing capabilities span premium genuine leather jackets, bespoke leather garments and a full range of apparel including hoodies, tracksuits, and t-shirts. With scalable production capacity, strict quality control systems, and streamlined export logistics, ATSAS is positioned to support both emerging brands and established global labels seeking dependable, long-term supply chain partnerships.
               </p>
               <p className="text-mid-grey leading-relaxed">
-                From startups to established brands, we've helped over 500 companies bring their vision to life with our flexible MOQ of just 10 jackets and unparalleled customization options.
+                Driven by innovation, operational efficiency, and a commitment to excellence, ATSAS continues to expand its international footprint while maintaining the craftsmanship, precision, and durability that define our products. We do not simply manufacture garments — we build enduring partnerships and deliver products designed to perform in competitive global markets.
               </p>
             </motion.div>
           </div>

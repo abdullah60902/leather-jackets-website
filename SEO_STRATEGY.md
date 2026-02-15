@@ -23,7 +23,7 @@ Our strategy targets **high-intent commercial keywords** combined with **informa
 ### Secondary Keywords (Niche & Specific)
 *   **Target**: Specific styles, materials, and use cases.
 *   **Keywords**:
-    *   `full grain leather motorcycle jackets`
+    *   `genuine leather motorcycle jackets`
     *   `vintage distress leather bomber jacket`
     *   `sustainable vegetable tanned leather`
     *   `sheepskin shearling jacket manufacturer`
@@ -55,13 +55,13 @@ Every page must be rewritten to include semantic richness and persuasive copy.
 ### Product/Service Pages (`/designs`, `/customization`)
 *   **Structure**:
     *   **H1**: `Custom Men’s & Women’s Leather Jackets – Design Your Own`
-    *   **Intro**: 150 words on material quality (Full Grain, Top Grain, Napa).
+    *   **Intro**: 150 words on material quality (Genuine Leather, Top Grain, Napa).
     *   **Features**: Bullet points on YKK Zippers, Polyester/Satin Linings, Reinforced Stitching.
     *   **FAQ Section**: Accordion style FAQs at the bottom for schema targeting.
 
 ### Blog Strategy (`/blog`)
 Publish 2-4 comprehensive guides per month.
-1.  **"The Ultimate Guide to Leather Grades: Full Grain vs. Top Grain vs. Genuine"** (Targeting: `types of leather quality`)
+1.  **"The Ultimate Guide to Leather Grades: Genuine vs. Top Grain"** (Targeting: `types of leather quality`)
 2.  **"How a Leather Jacket Should Fit: The Complete Sizing Guide"** (Targeting: `leather jacket fit guide`)
 3.  **"5 Signs of a High-Quality Leather Jacket"** (Targeting: `quality leather jacket features`)
 4.  **"2026 Leather Trends: What's In Style?"** (Targeting: `leather jacket fashion trends 2026`)

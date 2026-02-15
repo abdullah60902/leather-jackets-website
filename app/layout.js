@@ -32,7 +32,7 @@ export const metadata = {
     "small batch leather production",
     "leather jacket tailor london",
     "luxury leather apparel",
-    "full grain leather jackets",
+    "genuine leather jackets",
     "handcrafted leather goods",
     "sustainable leather manufacturing",
     "startup fashion brand manufacturer"

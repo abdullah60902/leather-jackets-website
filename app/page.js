@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
+import DesignCarousel from "@/components/DesignCarousel";
 
 export default function Home() {
   const features = [
@@ -22,7 +23,7 @@ export default function Home() {
     {
       icon: <Shield className="w-8 h-8" />,
       title: "Lifetime Leather Warranty",
-      description: "Our premium full-grain and top-grain leather jackets are built to last. We guarantee our stitching and material quality.",
+      description: "Our premium genuine leather jackets are built to last. We guarantee our stitching and material quality.",
     },
     {
       icon: <Award className="w-8 h-8" />,
@@ -87,59 +88,66 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Statistics Section - DARK CINEMATIC */}
-      <section className="py-40 bg-dark-grey relative overflow-hidden">
-        {/* Abstract background graphics */}
-        <div className="absolute top-0 right-0 w-[50%] h-full bg-gold/5 blur-[150px] -rotate-12 transform translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-[50%] h-full bg-gold/5 blur-[150px] rotate-12 transform -translate-x-1/2" />
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-16 text-center">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-              >
-                <h4 className="text-6xl md:text-7xl font-serif text-gold mb-3 tracking-tighter">
-                  <AnimatedCounter value={stat.value} />
-                </h4>
-                <p className="text-off-white/40 text-[10px] uppercase tracking-[0.5em] font-bold">
-                  {stat.label}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Statistics Replacement Image */}
+      {/* Design Showcase Carousel */}
+      <DesignCarousel />
 
       {/* SEO Content Section - NEW */}
       <section className="py-24 bg-white border-t border-gray-100">
         <div className="container mx-auto px-6 max-w-5xl">
-          <div className="prose prose-lg prose-slate mx-auto">
-            <h2 className="text-3xl font-heading text-dark-grey mb-8">Why Choose ATSAS for Custom Leather Jacket Manufacturing?</h2>
-            <p className="text-mid-grey leading-relaxed mb-6">
-              At <strong>ATSAS</strong>, we specialize in high-end <strong>bespoke leather jacket production</strong> for fashion brands, startups, and private clients worldwide. Located in the heart of London, our atelier combines traditional British tailoring techniques with modern leather craftsmanship to deliver garments that exude luxury and durability.
-            </p>
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div>
-                <h3 className="text-xl font-bold text-dark-grey mb-3">Premium Leather Quality</h3>
-                <p className="text-mid-grey">
-                  We source only the finest <strong>full-grain and top-grain leather skins</strong>, including sheepskin, cowhide, goat suede, and buffalo leather. Our vegetable-tanned options offer a sustainable choice for eco-conscious brands.
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-heading text-dark-grey mb-12 text-center">Why Choose ATSAS for Custom Leather Jacket Manufacturing?</h2>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="bg-gray-50 p-6 rounded-lg">
+                <h3 className="text-xl font-bold text-dark-grey mb-3">1. UK Based Manufacturer</h3>
+                <p className="text-mid-grey leading-relaxed">
+                  UK based manufacturer with advanced production facilities in Pakistan, ATSAS combines British design standards with world-class leather craftsmanship to deliver products that meet international market expectations.
                 </p>
               </div>
-              <div>
-                 <h3 className="text-xl font-bold text-dark-grey mb-3">Private Label Services</h3>
-                 <p className="text-mid-grey">
-                   Looking for a <strong>clothing manufacturer for your startup</strong>? We offer low MOQs (Minimum Order Quantities), custom labels, engraved hardware, and complete tech-pack development assistance.
-                 </p>
+
+              <div className="bg-gray-50 p-6 rounded-lg">
+                <h3 className="text-xl font-bold text-dark-grey mb-3">2. Genuine Leather Expertise</h3>
+                <p className="text-mid-grey leading-relaxed">
+                  We specialize in premium genuine leather jackets, working with high-quality sheepskin, cowhide, goat suede, and buffalo leather. Every piece is manufactured with strict quality control to ensure durability, comfort, and refined finishing.
+                </p>
+              </div>
+
+              <div className="bg-gray-50 p-6 rounded-lg">
+                <h3 className="text-xl font-bold text-dark-grey mb-3">3. Custom & Private Label Solutions</h3>
+                <p className="text-mid-grey leading-relaxed">
+                  From concept development to final production, we offer private label services. Custom designs, branding, labels, packaging, and specifications are tailored to your brand’s identity and market positioning.
+                </p>
+              </div>
+
+              <div className="bg-gray-50 p-6 rounded-lg">
+                <h3 className="text-xl font-bold text-dark-grey mb-3">4. Scalable Production Capacity</h3>
+                <p className="text-mid-grey leading-relaxed">
+                  Whether you are an emerging startup or an established fashion label, our production infrastructure supports flexible MOQs and large volume manufacturing with consistent quality standards.
+                </p>
+              </div>
+
+              <div className="bg-gray-50 p-6 rounded-lg">
+                <h3 className="text-xl font-bold text-dark-grey mb-3">5. Competitive Pricing</h3>
+                <p className="text-mid-grey leading-relaxed">
+                  Our vertically integrated supply chain and strategic manufacturing model allow us to offer competitive wholesale pricing while maintaining premium craftsmanship.
+                </p>
+              </div>
+
+              <div className="bg-gray-50 p-6 rounded-lg">
+                <h3 className="text-xl font-bold text-dark-grey mb-3">6. Reliable Global Export</h3>
+                <p className="text-mid-grey leading-relaxed">
+                  With streamlined logistics and export experience, we ensure timely production schedules and dependable international shipping.
+                </p>
+              </div>
+
+              <div className="bg-gray-50 p-6 rounded-lg md:col-span-2 lg:col-span-3 lg:w-2/3 lg:mx-auto">
+                <h3 className="text-xl font-bold text-dark-grey mb-3">7. Long-Term Partnership Approach</h3>
+                <p className="text-mid-grey leading-relaxed">
+                  At ATSAS, we focus on building lasting business relationships. Our team works closely with clients to support growth, product development, and long-term supply chain success.
+                </p>
               </div>
             </div>
-            <p className="text-mid-grey leading-relaxed">
-              Whether you need a single <strong>made-to-measure biker jacket</strong> or a wholesale batch of 500 bomber jackets, ATSAS delivers unmatched quality. We are distinct among <strong>UK leather manufacturers</strong> for our attention to detail and commitment to client satisfaction.
-            </p>
           </div>
         </div>
       </section>

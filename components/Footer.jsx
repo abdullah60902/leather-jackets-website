@@ -23,7 +23,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-sm text-off-white/70 leading-relaxed mb-6">
-              Premium bespoke leather jacket manufacturing for elite brands and discerning individuals since 2026.
+              Premium bespoke leather jacket manufacturing for elite brands and discerning individuals since 2012.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="hover:text-gold transition-colors">

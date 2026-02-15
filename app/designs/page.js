@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { Filter, ShoppingBag } from "lucide-react";
+import { Filter, X, ZoomIn, Check } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/Button";
@@ -11,10 +11,39 @@ import { preDesignedJackets, categories } from "@/data/predesigned";
 
 export default function DesignsPage() {
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedJacket, setSelectedJacket] = useState(null);
+  const [zoomLevel, setZoomLevel] = useState(1);
+  const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
 
   const filteredJackets = selectedCategory === "all" 
     ? preDesignedJackets 
     : preDesignedJackets.filter(j => j.category === selectedCategory);
+
+  const openModal = (jacket) => {
+    setSelectedJacket(jacket);
+    setZoomLevel(1);
+  };
+
+  const closeModal = () => {
+    setSelectedJacket(null);
+    setZoomLevel(1);
+    setMousePosition({ x: 50, y: 50 });
+  };
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setMousePosition({ x, y });
+  };
+
+  const handleZoomIn = () => {
+    setZoomLevel(prev => Math.min(prev + 0.5, 3));
+  };
+
+  const handleZoomOut = () => {
+    setZoomLevel(prev => Math.max(prev - 0.5, 1));
+  };
 
   return (
     <div className="min-h-screen bg-off-white">
@@ -28,26 +57,28 @@ export default function DesignsPage() {
               Ready-Made <span className="text-gradient-gold font-normal">Designs</span>
             </h1>
             <p className="text-lg text-mid-grey max-w-2xl mx-auto">
-              Choose from our curated collection. Simply select your design, sizes, and quantity.
+              Choose from our curated collection. Click on any jacket to see detailed view.
             </p>
           </div>
 
           {/* Category Filter */}
           <div className="flex items-center justify-center mb-12">
-            <div className="inline-flex items-center space-x-2 bg-white rounded-lg shadow-card p-2">
-              <Filter className="w-4 h-4 text-mid-grey ml-2" />
+            <div className="flex flex-wrap items-center justify-center gap-2 bg-white rounded-lg shadow-card p-2 max-w-full">
+              <div className="flex items-center justify-center w-full sm:w-auto mb-2 sm:mb-0">
+                <Filter className="w-4 h-4 text-mid-grey mx-2" />
+              </div>
               {categories.map((cat) => (
                 <button
                   key={cat.id}
                   onClick={() => setSelectedCategory(cat.id)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
                     selectedCategory === cat.id
                       ? "bg-dark-grey text-white"
                       : "text-mid-grey hover:bg-cream"
                   }`}
                 >
                   {cat.name}
-                  <span className="ml-2 text-xs opacity-70">({cat.count})</span>
+                  <span className="ml-1 text-xs opacity-70">({cat.count})</span>
                 </button>
               ))}
             </div>
@@ -63,37 +94,45 @@ export default function DesignsPage() {
                 transition={{ delay: index * 0.1 }}
                 className="bg-white rounded-lg shadow-card overflow-hidden group hover:shadow-float transition-all duration-300"
               >
-                <Link href={`/designs/${jacket.id}`}>
-                  {/* Image */}
-                  <div className="aspect-[3/4] bg-cream overflow-hidden relative">
-                    <img
-                      src={jacket.images[0]}
-                      alt={jacket.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-dark-grey">
-                      {jacket.category.charAt(0).toUpperCase() + jacket.category.slice(1)}
+                {/* Image - clickable to open modal */}
+                <div 
+                  onClick={() => openModal(jacket)}
+                  className="aspect-[3/4] bg-cream overflow-hidden relative cursor-pointer"
+                >
+                  <img
+                    src={jacket.images[0]}
+                    alt={jacket.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-dark-grey">
+                    {jacket.category.charAt(0).toUpperCase() + jacket.category.slice(1)}
+                  </div>
+                  {/* Zoom hint on hover */}
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <div className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg flex items-center space-x-2">
+                      <ZoomIn className="w-5 h-5 text-dark-grey" />
+                      <span className="text-dark-grey font-medium">Click to View</span>
                     </div>
                   </div>
+                </div>
 
-                  {/* Content */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold text-dark-grey mb-2 group-hover:text-gold transition-colors">
-                      {jacket.name}
-                    </h3>
-                    <p className="text-sm text-mid-grey mb-3 line-clamp-2">
-                      {jacket.description}
-                    </p>
-                    
-                    <div className="flex items-center justify-between pt-4 border-t border-beige">
-                      <Link href="/contact" className="w-full">
-                        <Button variant="primary" size="sm" className="w-full">
-                          Get in Touch
-                        </Button>
-                      </Link>
-                    </div>
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-dark-grey mb-2">
+                    {jacket.name}
+                  </h3>
+                  <p className="text-sm text-mid-grey mb-3 line-clamp-2">
+                    {jacket.description}
+                  </p>
+                  
+                  <div className="flex items-center justify-between pt-4 border-t border-beige">
+                    <Link href="/contact" className="w-full">
+                      <Button variant="primary" size="sm" className="w-full">
+                        Get in Touch
+                      </Button>
+                    </Link>
                   </div>
-                </Link>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -123,6 +162,121 @@ export default function DesignsPage() {
       </main>
 
       <Footer />
+
+      {/* Image Modal/Lightbox */}
+      <AnimatePresence>
+        {selectedJacket && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
+            onClick={closeModal}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", damping: 25 }}
+              className="relative w-full max-w-6xl bg-white rounded-lg shadow-2xl max-h-[90vh] overflow-y-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <button
+                onClick={closeModal}
+                className="fixed md:absolute top-4 right-4 z-[60] w-10 h-10 rounded-full bg-dark-grey text-white flex items-center justify-center hover:bg-black transition-colors shadow-lg"
+              >
+                <X className="w-6 h-6" />
+              </button>
+
+              {/* Zoom Controls */}
+              <div className="absolute top-4 left-4 z-10 flex space-x-2">
+                <button
+                  onClick={handleZoomOut}
+                  disabled={zoomLevel <= 1}
+                  className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <span className="text-dark-grey font-bold">-</span>
+                </button>
+                <button
+                  onClick={handleZoomIn}
+                  disabled={zoomLevel >= 3}
+                  className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <span className="text-dark-grey font-bold">+</span>
+                </button>
+                <div className="px-3 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center">
+                  <span className="text-dark-grey text-sm font-medium">{Math.round(zoomLevel * 100)}%</span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                {/* Left: Zoomable Image */}
+                <div className="bg-cream overflow-hidden lg:max-h-[80vh]">
+                  <div className="p-8 flex items-center justify-center min-h-full">
+                    <img
+                      src={selectedJacket.images[0]}
+                      alt={selectedJacket.name}
+                      className="transition-transform duration-500 ease-out cursor-crosshair"
+                      style={{ 
+                        transform: `scale(${zoomLevel})`,
+                        transformOrigin: `${mousePosition.x}% ${mousePosition.y}%`,
+                        maxWidth: '100%',
+                        height: 'auto'
+                      }}
+                      onMouseMove={handleMouseMove}
+                      onMouseEnter={() => setZoomLevel(2)}
+                      onMouseLeave={() => setZoomLevel(1)}
+                    />
+                  </div>
+                </div>
+
+                {/* Right: Product Details */}
+                <div className="p-6 lg:p-10 flex flex-col justify-center h-full">
+                  <div className="mb-4">
+                    <span className="inline-block bg-gold/10 text-gold px-3 py-1 rounded-full text-xs font-medium">
+                      {selectedJacket.category.charAt(0).toUpperCase() + selectedJacket.category.slice(1)}
+                    </span>
+                  </div>
+
+                  <h2 className="text-3xl md:text-4xl font-light text-dark-grey mb-4">
+                    {selectedJacket.name}
+                  </h2>
+
+                  <p className="text-lg text-mid-grey mb-6 leading-relaxed">
+                    {selectedJacket.description}
+                  </p>
+
+                  <div className="border-t border-b border-beige py-6 mb-6">
+                    <div className="flex items-center justify-between">
+                      <span className="text-mid-grey">Material</span>
+                      <span className="font-semibold text-dark-grey">{selectedJacket.material}</span>
+                    </div>
+                  </div>
+
+                  <div className="mb-6">
+                    <h3 className="text-lg font-semibold text-dark-grey mb-4">Features</h3>
+                    <ul className="space-y-3">
+                      {selectedJacket.features.map((feature, index) => (
+                        <li key={index} className="flex items-start space-x-3">
+                          <Check className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
+                          <span className="text-mid-grey">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <Link href="/contact" className="w-full block">
+                    <Button variant="primary" size="lg" className="w-full">
+                      Get in Touch for Quote
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

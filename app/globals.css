@@ -73,22 +73,26 @@
 }
 
 /* Custom Scrollbar */
+/* Custom Scrollbar - Hidden but functional */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 0px;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #b8860b;
-  /* Gold color */
-  border-radius: 10px;
+  background: transparent;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #966d09;
+/* Hide scrollbar for IE, Edge and Firefox */
+html {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 html {

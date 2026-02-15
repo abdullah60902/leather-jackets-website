@@ -29,38 +29,38 @@ import Link from "next/link";
 const steps = [
   {
     number: "01",
-    title: "Premium Full-Grain Leather Selection",
-    description: "Only the finest full-grain hides are selected and hand-inspected for natural texture, strength, and authenticity.",
+    title: "Factory-Direct Manufacturing",
+    description: "Each jacket is crafted in-house with strict quality control, ensuring a flawless finish and real leather authenticity.",
+    image: "/img/Factory-Direct.png",
+    details: "By manufacturing in-house, we eliminate traditional retail markups while maintaining total quality oversight."
+  },
+  {
+    number: "02",
+    title: "Premium Genuine Leather Selection",
+    description: "Only the finest genuine hides are selected and hand-inspected for natural texture, strength, and authenticity.",
     image: "/img/Full-Grain.png",
     details: "We partner exclusively with LWG-certified tanneries to ensure ethical sourcing and superior hide quality."
   },
   {
-    number: "02",
+    number: "03",
     title: "Precision Hand Cutting",
     description: "Expert artisans cut each panel with care to maintain perfect alignment, reduce waste, and preserve leather integrity.",
     image: "/img/Precision-Hand-Cutting.png",
     details: "Every curve and seam is mapped by hand to respect the natural grain of the hide."
   },
   {
-    number: "03",
+    number: "04",
     title: "Reinforced Luxury Stitching",
     description: "Industrial-strength stitching combined with artisan finishing ensures durability and refined luxury appearance.",
     image: "/img/Reinforced-Luxury-Stitching.png",
     details: "We use high-tensile bonded threads that resist fraying and maintain structural integrity for a lifetime."
   },
   {
-    number: "04",
+    number: "05",
     title: "Premium Hardware & Fine Detailing",
     description: "Solid brass zippers, custom buttons, and silk linings are carefully installed for maximum luxury impact.",
     image: "/img/Premium-Hardware.png",
     details: "Featuring YKK Excella zippers and custom-engraved hardware that defines the ATSAS signature."
-  },
-  {
-    number: "05",
-    title: "Factory-Direct Manufacturing",
-    description: "Each jacket is crafted in-house with strict quality control, ensuring a flawless finish and real leather authenticity.",
-    image: "/img/Factory-Direct.png",
-    details: "By manufacturing in-house, we eliminate traditional retail markups while maintaining total quality oversight."
   }
 ];
 
@@ -237,7 +237,7 @@ export default function CustomizationPage() {
               <div className="relative z-10">
                 <h2 className="text-4xl md:text-6xl font-light mb-8 tracking-tight">
                   Create Your <br />
-                  <span className="font-serif italic text-gold font-normal">Signature</span> Leather Jacket
+                  <span className="font-serif italic text-gold font-normal">Brand</span>
                 </h2>
                 <p className="text-off-white/60 text-lg md:text-xl font-light mb-12 max-w-2xl mx-auto">
                   Every masterpiece begins with a conversation. Start your bespoke production journey with our master artisans today.
