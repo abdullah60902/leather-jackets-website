@@ -12,6 +12,7 @@ import { preDesignedJackets, categories } from "@/data/predesigned";
 export default function DesignsPage() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedJacket, setSelectedJacket] = useState(null);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [zoomLevel, setZoomLevel] = useState(1);
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
 
@@ -21,11 +22,13 @@ export default function DesignsPage() {
 
   const openModal = (jacket) => {
     setSelectedJacket(jacket);
+    setActiveImageIndex(0);
     setZoomLevel(1);
   };
 
   const closeModal = () => {
     setSelectedJacket(null);
+    setActiveImageIndex(0);
     setZoomLevel(1);
     setMousePosition({ x: 50, y: 50 });
   };
@@ -126,11 +129,16 @@ export default function DesignsPage() {
                   </p>
                   
                   <div className="flex items-center justify-between pt-4 border-t border-beige">
-                    <Link href="/contact" className="w-full">
-                      <Button variant="primary" size="sm" className="w-full">
-                        Get in Touch
-                      </Button>
-                    </Link>
+                    <div className="flex flex-col w-full gap-2">
+                      <Link href="/contact" className="w-full">
+                        <Button variant="primary" size="sm" className="w-full">
+                          Get in Touch
+                        </Button>
+                      </Link>
+                      {jacket.images.length > 1 && (
+                        <p className="text-[10px] text-center text-mid-grey uppercase tracking-widest font-semibold italic">Multiple Views Available</p>
+                      )}
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -210,29 +218,54 @@ export default function DesignsPage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 overflow-hidden">
                 {/* Left: Zoomable Image */}
-                <div className="bg-cream overflow-hidden lg:max-h-[80vh]">
-                  <div className="p-8 flex items-center justify-center min-h-full">
-                    <img
-                      src={selectedJacket.images[0]}
-                      alt={selectedJacket.name}
-                      className="transition-transform duration-500 ease-out cursor-crosshair"
-                      style={{ 
-                        transform: `scale(${zoomLevel})`,
-                        transformOrigin: `${mousePosition.x}% ${mousePosition.y}%`,
-                        maxWidth: '100%',
-                        height: 'auto'
-                      }}
-                      onMouseMove={handleMouseMove}
-                      onMouseEnter={() => setZoomLevel(2)}
-                      onMouseLeave={() => setZoomLevel(1)}
-                    />
+                <div className="bg-cream relative overflow-hidden lg:max-h-[80vh] flex flex-col">
+                  <div className="flex-1 p-8 flex items-center justify-center min-h-[400px]">
+                    <AnimatePresence mode="wait">
+                      <motion.img
+                        key={activeImageIndex}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        src={selectedJacket.images[activeImageIndex]}
+                        alt={selectedJacket.name}
+                        className="transition-transform duration-500 ease-out cursor-crosshair max-w-full h-auto object-contain"
+                        style={{ 
+                          transform: `scale(${zoomLevel})`,
+                          transformOrigin: `${mousePosition.x}% ${mousePosition.y}%`,
+                        }}
+                        onMouseMove={handleMouseMove}
+                        onMouseEnter={() => setZoomLevel(1.5)}
+                        onMouseLeave={() => setZoomLevel(1)}
+                      />
+                    </AnimatePresence>
                   </div>
+                  
+                  {/* Image Selector / Views Toggle */}
+                  {selectedJacket.images.length > 1 && (
+                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
+                      <div className="bg-white/90 backdrop-blur-sm p-1.5 rounded-full shadow-lg border border-beige flex gap-2">
+                        {selectedJacket.images.map((_, idx) => (
+                          <button
+                            key={idx}
+                            onClick={() => setActiveImageIndex(idx)}
+                            className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all ${
+                              activeImageIndex === idx
+                                ? "bg-dark-grey text-white shadow-md"
+                                : "text-mid-grey hover:bg-cream"
+                            }`}
+                          >
+                            {idx === 0 ? "Front View" : idx === 1 ? "Back View" : `View ${idx + 1}`}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {/* Right: Product Details */}
-                <div className="p-6 lg:p-10 flex flex-col justify-center h-full">
+                <div className="p-6 lg:p-10 flex flex-col justify-center h-full bg-white">
                   <div className="mb-4">
                     <span className="inline-block bg-gold/10 text-gold px-3 py-1 rounded-full text-xs font-medium">
                       {selectedJacket.category.charAt(0).toUpperCase() + selectedJacket.category.slice(1)}
@@ -247,15 +280,17 @@ export default function DesignsPage() {
                     {selectedJacket.description}
                   </p>
 
-                  <div className="border-t border-b border-beige py-6 mb-6">
-                    <div className="flex items-center justify-between">
-                      <span className="text-mid-grey">Material</span>
-                      <span className="font-semibold text-dark-grey">{selectedJacket.material}</span>
+                  {selectedJacket.category !== "t-shirt" && selectedJacket.category !== "hoodies" && (
+                    <div className="border-t border-b border-beige py-6 mb-6">
+                      <div className="flex items-center justify-between">
+                        <span className="text-mid-grey">Material</span>
+                        <span className="font-semibold text-dark-grey">{selectedJacket.material}</span>
+                      </div>
                     </div>
-                  </div>
+                  )}
 
                   <div className="mb-6">
-                    <h3 className="text-lg font-semibold text-dark-grey mb-4">Features</h3>
+                    <h3 className="text-lg font-semibold text-dark-grey mb-4">Key Features</h3>
                     <ul className="space-y-3">
                       {selectedJacket.features.map((feature, index) => (
                         <li key={index} className="flex items-start space-x-3">
@@ -267,8 +302,8 @@ export default function DesignsPage() {
                   </div>
 
                   <Link href="/contact" className="w-full block">
-                    <Button variant="primary" size="lg" className="w-full">
-                      Get in Touch for Quote
+                    <Button variant="primary" size="lg" className="w-full shadow-lg hover:shadow-xl transition-shadow">
+                      Request a Custom Quote
                     </Button>
                   </Link>
                 </div>
