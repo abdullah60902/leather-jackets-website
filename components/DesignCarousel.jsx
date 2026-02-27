@@ -3,21 +3,23 @@ import React from "react";
 import { motion } from "framer-motion";
 import { preDesignedJackets } from "@/data/predesigned";
 import Link from "next/link";
+import { useMemo } from "react";
 
 export default function DesignCarousel() {
-  // Extract all first images from the products
-  const productImages = preDesignedJackets
-    .filter(jacket => jacket.images && jacket.images.length > 0)
-    .map(jacket => ({
-      id: jacket.id,
-      image: jacket.images[0],
-      name: jacket.name,
-      category: jacket.category
-    }));
+  // Extract and shuffle all first images from the products
+  const productImages = useMemo(() => {
+    return preDesignedJackets
+      .filter(jacket => jacket.images && jacket.images.length > 0)
+      .map(jacket => ({
+        id: jacket.id,
+        image: jacket.images[0],
+        name: jacket.name,
+        category: jacket.category
+      }))
+      .sort(() => Math.random() - 0.5); // Simple shuffle
+  }, []);
 
   // Duplicate items to ensure seamless loop without gaps
-  // If we have enough items (e.g., > 10), duplicating once is usually enough for a wide screen.
-  // Given we have ~30 items, duplicating once results in 60 items, which is plenty.
   const carouselItems = [...productImages, ...productImages];
 
   return (

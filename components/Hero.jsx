@@ -61,17 +61,17 @@ export default function Hero() {
 
             <motion.h1
               variants={itemVariants}
-              className="font-sans font-light text-3xl sm:text-5xl md:text-7xl lg:text-8xl leading-[0.95] text-white tracking-tighter"
+              className="font-sans font-light text-2xl sm:text-4xl md:text-6xl lg:text-7xl leading-[0.95] text-white tracking-tighter"
             >
-              The Premier <br />
-              <span className="font-serif italic font-normal text-gold">Leather Manufacturer</span>
+              Your Global <br />
+              <span className="font-serif italic font-normal text-gold">Leather and Apparel Manufacturer</span>
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
               className="text-sm sm:text-base md:text-lg text-off-white/80 max-w-lg font-light leading-relaxed tracking-wide italic"
             >
-              "World-class bespoke leather jacket production for luxury brands and startups. Crafted in London, worn globally."
+              "Crafted With Precision To Elevate Your Future."
             </motion.p>
 
             <motion.div

@@ -1,5 +1,87 @@
 export const preDesignedJackets = [
   {
+    id: "classic-men-leather-jacket",
+    name: "Classic Men's Leather Jacket",
+    category: "mens",
+    description: "A timeless masterpiece of leather craftsmanship. This classic jacket offers a perfect balance of rugged durability and sophisticated style.",
+    price: 450,
+    images: [
+      "/img/men-jacket.jpeg",
+      "/img/men-jacket (2).jpeg",
+      "/img/men-jacket (3).jpeg",
+    ],
+    material: "Premium Genuine Leather",
+    features: [
+      "Classic collar design",
+      "Full-grain leather",
+      "Robust YKK zippers",
+      "Interior storage pockets",
+      "Satin soft lining"
+    ],
+    availableColors: ["Black", "Brown", "Tan"],
+    customizable: true,
+  },
+  {
+    id: "elegant-women-leather-jacket",
+    name: "Elegant Women's Leather Jacket",
+    category: "women",
+    description: "Sophisticated and sleek, this women's leather jacket is designed to provide a flattering silhouette while ensuring maximum comfort.",
+    price: 420,
+    images: [
+      "/img/women-jacket.jpeg",
+    ],
+    material: "Soft Lambskin Leather",
+    features: [
+      "Fitted silhouette",
+      "Premium hardware",
+      "Asymmetric zip closure",
+      "Soft inner lining",
+      "Hand-finished details"
+    ],
+    availableColors: ["Black", "Oxblood", "Cream"],
+    customizable: true,
+  },
+  {
+    id: "premium-essential-hoodie-new",
+    name: "Premium Essential Hoodie",
+    category: "hoodies",
+    description: "Our signature heavyweight hoodie, crafted for ultimate comfort and street-ready style.",
+    price: 55,
+    images: [
+      "/img/hoodie.jpeg",
+    ],
+    material: "Heavyweight Cotton Fleece",
+    features: [
+      "Ultra-soft interior",
+      "Reinforced kangaroo pocket",
+      "Double-layered hood",
+      "Ribbed cuffs and hem",
+      "Premium drawstring hardware"
+    ],
+    availableColors: ["Black", "Navy", "Heather Grey"],
+    customizable: true,
+  },
+  {
+    id: "classic-cotton-tshirt-new",
+    name: "Classic Cotton T-Shirt",
+    category: "t-shirt",
+    description: "The perfect everyday t-shirt, made from the finest long-staple cotton for a superior feel.",
+    price: 30,
+    images: [
+      "/img/t-shirt.jpeg",
+    ],
+    material: "100% Premium Cotton",
+    features: [
+      "Breathable fabric",
+      "Classic crew neck",
+      "Pre-shrunk for fit",
+      "Reinforced collar",
+      "Soft-touch finish"
+    ],
+    availableColors: ["White", "Black", "Navy"],
+    customizable: true,
+  },
+  {
     id: "biker-protective-leather-jacket",
     name: "Biker Protective Leather Jacket",
     category: "mens",
@@ -212,16 +294,16 @@ export const preDesignedJackets = [
     description: "Luxurious leather jacket with fur collar. Perfect for premium brands seeking ultimate warmth.",
     price: 620,
     images: [
-      "/img/fur-leather-jacket.jpeg",
-      "/img/fur-leather-jacket.jpeg",
-      "/img/fur-leather-jacket.jpeg",
+      "/img/fur-leather-jacket.png",
+      "/img/fur-leather-jacket.png",
+      "/img/fur-leather-jacket.png",
     ],
     material: "Premium Leather with Fur Collar",
     features: [
       "Real fur collar",
       "Premium leather shell",
       "Heavy-duty zipper",
-      "Interior pockets",
+      "Interior storage pockets",
       "Classic fit"
     ],
     availableColors: ["Brown", "Black", "Tan"],
@@ -450,49 +532,50 @@ export const preDesignedJackets = [
     customizable: true,
   },
   {
-    id: "green-leather-zipper-socks",
-    name: "Premium High-Ankle Leather Socks",
+    id: "classic-leather-gloves",
+    name: "Classic Leather Gloves",
     category: "accessories",
-    description: "Handcrafted high-ankle leather socks with zipper closure. Durable, warm, and perfect for indoor wear or religious observance (Khuffain).",
-    price: 55,
+    description: "Premium genuine leather gloves with soft lining. Perfect for style and warmth.",
+    price: 40,
     images: [
-      "/img/Green-Leather-zipper-Socks-high-Ankel-kuff.jpeg",
-      "/img/Green-Leather-zipper-Socks-high-Ankel-kuff.jpeg",
-      "/img/Green-Leather-zipper-Socks-high-Ankel-kuff.jpeg",
+      "/img/glove.jpeg",
+      "/img/glove.jpeg",
+      "/img/glove.jpeg",
     ],
     material: "Genuine Leather",
     features: [
-      "High-quality genuine leather",
-      "Side zipper for easy wear",
       "Soft inner lining",
-      "Durable sole",
-      "Thermal insulation"
+      "Touchscreen compatible",
+      "Elastic wrist snug fit",
+      "Premium leather grain",
+      "Classic design"
     ],
-    availableColors: ["Green", "Black", "Brown"],
+    availableColors: ["Black", "Brown"],
     customizable: true,
   },
   {
-    id: "classic-leather-khuff",
-    name: "Classic Leather Khuff",
+    id: "thermal-winter-gloves",
+    name: "Thermal Winter Gloves",
     category: "accessories",
-    description: "Traditional leather socks designed for durability and comfort. Ideal for daily wear and Wudu ease.",
-    price: 45,
+    description: "Insulated leather gloves designed for extreme cold. Features thermal lining and enhanced grip.",
+    price: 55,
     images: [
-      "/img/WhatsApp Image 2026-02-16 at 2.06.17 AM.jpeg",
-      "/img/WhatsApp Image 2026-02-16 at 2.06.17 AM.jpeg",
-      "/img/WhatsApp Image 2026-02-16 at 2.06.17 AM.jpeg",
+      "/img/glove (2).jpeg",
+      "/img/glove (2).jpeg",
+      "/img/glove (2).jpeg",
     ],
-    material: "Genuine Leather",
+    material: "Genuine Leather with Thermal Lining",
     features: [
-      "Soft, pliable leather",
-      "Easy slip-on design",
-      "Breathable material",
-      "Reinforced stitching",
-      "Water-resistant"
+      "Thermal fleece lining",
+      "Water-resistant exterior",
+      "Enhanced palm grip",
+      "Adjustable wrist strap",
+      "Maximum warmth"
     ],
-    availableColors: ["Black", "Dark Brown"],
+    availableColors: ["Black", "Tan"],
     customizable: true,
   },
+
   {
     id: "thermal-winter-socks",
     name: "Thermal Winter Leather Socks",
@@ -515,28 +598,7 @@ export const preDesignedJackets = [
     availableColors: ["Black", "Navy"],
     customizable: true,
   },
-  {
-    id: "premium-zipper-khuff",
-    name: "Premium Zipper Khuff",
-    category: "accessories",
-    description: "Modern leather socks featuring a convenient zipper and sleek design for ease of use.",
-    price: 50,
-    images: [
-      "/img/WhatsApp Image 2026-02-16 at 2.06.17 AM (3).jpeg",
-      "/img/WhatsApp Image 2026-02-16 at 2.06.17 AM (3).jpeg",
-      "/img/WhatsApp Image 2026-02-16 at 2.06.17 AM (3).jpeg",
-    ],
-    material: "Genuine Leather",
-    features: [
-      "YKK side zipper",
-      "Smooth leather grain",
-      "Comfortable fit",
-      "Lightweight design",
-      "Unisex style"
-    ],
-    availableColors: ["Black", "Brown", "Tan"],
-    customizable: true,
-  },
+
   {
     id: "classic-leather-belt-new",
     name: "Premium Stitch Belt",
@@ -669,50 +731,7 @@ export const preDesignedJackets = [
     availableColors: ["Brown", "Black"],
     customizable: true,
   },
-  {
-    id: "classic-leather-gloves",
-    name: "Classic Leather Gloves",
-    category: "accessories",
-    description: "Premium genuine leather gloves with soft lining. Perfect for style and warmth.",
-    price: 40,
-    images: [
-      "/img/glove.jpeg",
-      "/img/glove.jpeg",
-      "/img/glove.jpeg",
-    ],
-    material: "Genuine Leather",
-    features: [
-      "Soft inner lining",
-      "Touchscreen compatible",
-      "Elastic wrist snug fit",
-      "Premium leather grain",
-      "Classic design"
-    ],
-    availableColors: ["Black", "Brown"],
-    customizable: true,
-  },
-  {
-    id: "thermal-winter-gloves",
-    name: "Thermal Winter Gloves",
-    category: "accessories",
-    description: "Insulated leather gloves designed for extreme cold. Features thermal lining and enhanced grip.",
-    price: 55,
-    images: [
-      "/img/glove (2).jpeg",
-      "/img/glove (2).jpeg",
-      "/img/glove (2).jpeg",
-    ],
-    material: "Genuine Leather with Thermal Lining",
-    features: [
-      "Thermal fleece lining",
-      "Water-resistant exterior",
-      "Enhanced palm grip",
-      "Adjustable wrist strap",
-      "Maximum warmth"
-    ],
-    availableColors: ["Black", "Tan"],
-    customizable: true,
-  },
+
 
   // T-SHIRT COLLECTION
   {
@@ -932,10 +951,10 @@ export const preDesignedJackets = [
 ];
 
 export const categories = [
-  { id: "all", name: "All Collection", count: 46 },
-  { id: "mens", name: "Mens Collection", count: 11 },
-  { id: "women", name: "Women", count: 9 },
-  { id: "t-shirt", name: "T shirt", count: 5 },
-  { id: "hoodies", name: "Hoodies", count: 9 },
-  { id: "accessories", name: "Accessories", count: 12 },
+  { id: "all", name: "All Collection", count: 47 },
+  { id: "mens", name: "Mens Collection", count: 12 },
+  { id: "women", name: "Women", count: 10 },
+  { id: "t-shirt", name: "T shirt", count: 6 },
+  { id: "hoodies", name: "Hoodies", count: 10 },
+  { id: "accessories", name: "Accessories", count: 9 },
 ];

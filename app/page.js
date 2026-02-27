@@ -151,6 +151,72 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* Advanced Techniques & Materials */}
+      <section className="py-24 bg-dark-grey text-white overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-gold/5 -skew-x-12 transform translate-x-1/2" />
+        
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-20">
+            {/* Printing Techniques */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-sm uppercase tracking-[0.5em] text-gold font-bold mb-6">Printing techniques</h2>
+              <h3 className="text-4xl font-light mb-12">Advanced <span className="font-serif italic text-gold">Decoration Techniques</span></h3>
+              
+              <div className="space-y-8">
+                {[
+                  { title: "Screen Printing", desc: "The industry standard for large, simple designs (1-3 colors). Highly durable and cost-effective for bulk orders of 50+ items." },
+                  { title: "Direct-to-Garment (DTG)", desc: "Uses special printers to spray ink directly onto cotton, ideal for detailed, photographic designs and small orders." },
+                  { title: "Direct-to-Film (DTF)", desc: "A versatile, newer method that prints designs onto film, then transfers them to any fabric. Known for high durability and vibrant prints." },
+                  { title: "Heat Transfer Vinyl (HTV)", desc: "Involves cutting designs from colored vinyl and heat-pressing them onto garments. Excellent for personalization." },
+                  { title: "Embroidery", desc: "A key decoration technique for hoodies and hats, offering a premium, textured, and high-quality look." },
+                  { title: "Puff Print", desc: "A screen-printing technique that creates a raised, 3D, and soft-touch texture on hoodies and t-shirts." }
+                ].map((item, idx) => (
+                  <div key={idx} className="group border-l border-gold/30 pl-6 hover:border-gold transition-colors duration-300">
+                    <h4 className="text-xl font-semibold mb-2 group-hover:text-gold transition-colors">{item.title}</h4>
+                    <p className="text-off-white/60 font-light leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Leather Materials */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="mt-20 lg:mt-0"
+            >
+              <h2 className="text-sm uppercase tracking-[0.5em] text-gold font-bold mb-6">Premium Sourcing</h2>
+              <h3 className="text-4xl font-light mb-12">Premium <span className="font-serif italic text-gold">Leather Hides</span></h3>
+              
+              <div className="grid sm:grid-cols-2 gap-6">
+                {[
+                  { title: "Cowhide", desc: "The most common, durable leather used for furniture, bags, belts, and automotive interiors." },
+                  { title: "Sheepskin / Lambskin", desc: "Exceptionally soft, lightweight, and supple, ideal for garments, jackets, and gloves." },
+                  { title: "Goatskin", desc: "Strong, flexible, and resistant to wear, often used for shoes, boots, and high-quality accessories." },
+                  { title: "Buffalo", desc: "Similar to cowhide but thicker with a more prominent grain, often used for heavy-duty leather goods." }
+                ].map((item, idx) => (
+                  <div key={idx} className="p-8 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-500 group">
+                    <div className="w-12 h-1 bg-gold mb-6 group-hover:w-full transition-all duration-500" />
+                    <h4 className="text-xl font-semibold mb-4">{item.title}</h4>
+                    <p className="text-off-white/60 font-light text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-12 p-8 bg-gold/10 rounded-2xl border border-gold/20">
+                <p className="text-gold italic font-serif">"Our materials are ethically sourced and processed using environmentally responsible tanning methods, ensuring luxury that doesn't compromise on values."</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
       {/* Call to Action Section */}
       <section className="py-32 bg-off-white border-t border-beige/30">
