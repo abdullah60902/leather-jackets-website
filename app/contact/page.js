@@ -1,12 +1,68 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Send, CheckCircle, AlertCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/Button";
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    company: "",
+    quantity: "10-24",
+    message: "",
+  });
+
+  const [status, setStatus] = useState({
+    submitting: false,
+    success: false,
+    error: null,
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus({ submitting: true, success: false, error: null });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.details || data.error || "Failed to send message");
+      }
+
+      setStatus({ submitting: false, success: true, error: null });
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        company: "",
+        quantity: "10-24",
+        message: "",
+      });
+    } catch (err) {
+      setStatus({ submitting: false, success: false, error: err.message });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-off-white">
       <Navbar />
@@ -30,68 +86,141 @@ export default function ContactPage() {
               className="bg-white rounded-lg shadow-card p-8"
             >
               <h2 className="text-2xl font-semibold text-dark-grey mb-6">Send us a message</h2>
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              
+              {status.success ? (
+                <div className="bg-green-50 border border-green-200 text-green-700 p-6 rounded-lg text-center">
+                  <CheckCircle className="w-12 h-12 text-green-500 mx-auto mb-4" />
+                  <h3 className="text-xl font-semibold mb-2">Message Sent!</h3>
+                  <p>Thank you for reaching out. We'll get back to you shortly.</p>
+                  <Button 
+                    variant="outline" 
+                    className="mt-6"
+                    onClick={() => setStatus({ ...status, success: false })}
+                  >
+                    Send another message
+                  </Button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-medium text-dark-grey mb-2">First Name</label>
+                      <input
+                        type="text"
+                        name="firstName"
+                        required
+                        value={formData.firstName}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 border border-light-grey rounded-lg focus:outline-none focus:border-gold transition-colors"
+                        placeholder="John"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-dark-grey mb-2">Last Name</label>
+                      <input
+                        type="text"
+                        name="lastName"
+                        required
+                        value={formData.lastName}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 border border-light-grey rounded-lg focus:outline-none focus:border-gold transition-colors"
+                        placeholder="Doe"
+                      />
+                    </div>
+                  </div>
+
                   <div>
-                    <label className="block text-sm font-medium text-dark-grey mb-2">First Name</label>
+                    <label className="block text-sm font-medium text-dark-grey mb-2">Email</label>
                     <input
-                      type="text"
+                      type="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 border border-light-grey rounded-lg focus:outline-none focus:border-gold transition-colors"
-                      placeholder="John"
+                      placeholder="john@company.com"
                     />
                   </div>
+
                   <div>
-                    <label className="block text-sm font-medium text-dark-grey mb-2">Last Name</label>
+                    <label className="block text-sm font-medium text-dark-grey mb-2">Phone Number</label>
                     <input
-                      type="text"
+                      type="tel"
+                      name="phone"
+                      required
+                      value={formData.phone}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 border border-light-grey rounded-lg focus:outline-none focus:border-gold transition-colors"
-                      placeholder="Doe"
+                      placeholder="+44 7375 792237"
                     />
                   </div>
-                </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-dark-grey mb-2">Email</label>
-                  <input
-                    type="email"
-                    className="w-full px-4 py-3 border border-light-grey rounded-lg focus:outline-none focus:border-gold transition-colors"
-                    placeholder="john@company.com"
-                  />
-                </div>
+                  <div>
+                    <label className="block text-sm font-medium text-dark-grey mb-2">Company (Optional)</label>
+                    <input
+                      type="text"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-light-grey rounded-lg focus:outline-none focus:border-gold transition-colors"
+                      placeholder="Your Company Ltd"
+                    />
+                  </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-dark-grey mb-2">Company (Optional)</label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-3 border border-light-grey rounded-lg focus:outline-none focus:border-gold transition-colors"
-                    placeholder="Your Company Ltd"
-                  />
-                </div>
+                  <div>
+                    <label className="block text-sm font-medium text-dark-grey mb-2">Estimated Quantity</label>
+                    <select 
+                      name="quantity"
+                      value={formData.quantity}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-light-grey rounded-lg focus:outline-none focus:border-gold transition-colors"
+                    >
+                      <option>10-24</option>
+                      <option>25-49</option>
+                      <option>50-99</option>
+                      <option>100-249</option>
+                      <option>250+</option>
+                    </select>
+                  </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-dark-grey mb-2">Estimated Quantity</label>
-                  <select className="w-full px-4 py-3 border border-light-grey rounded-lg focus:outline-none focus:border-gold transition-colors">
-                    <option>10-24</option>
-                    <option>25-49</option>
-                    <option>50-99</option>
-                    <option>100-249</option>
-                    <option>250+</option>
-                  </select>
-                </div>
+                  <div>
+                    <label className="block text-sm font-medium text-dark-grey mb-2">Message</label>
+                    <textarea
+                      name="message"
+                      required
+                      rows="5"
+                      value={formData.message}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-light-grey rounded-lg focus:outline-none focus:border-gold transition-colors resize-none"
+                      placeholder="Tell us about your project..."
+                    />
+                  </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-dark-grey mb-2">Message</label>
-                  <textarea
-                    rows="5"
-                    className="w-full px-4 py-3 border border-light-grey rounded-lg focus:outline-none focus:border-gold transition-colors resize-none"
-                    placeholder="Tell us about your project..."
-                  />
-                </div>
+                  {status.error && (
+                    <div className="flex items-center space-x-2 text-red-600 bg-red-50 p-4 rounded-lg">
+                      <AlertCircle className="w-5 h-5" />
+                      <span>{status.error}</span>
+                    </div>
+                  )}
 
-                <Button variant="primary" size="lg" className="w-full">
-                  Send Message
-                </Button>
-              </form>
+                  <Button 
+                    variant="primary" 
+                    size="lg" 
+                    className="w-full"
+                    type="submit"
+                    disabled={status.submitting}
+                  >
+                    {status.submitting ? (
+                      <span className="flex items-center space-x-2">
+                        <Send className="w-5 h-5 animate-pulse" />
+                        <span>Sending...</span>
+                      </span>
+                    ) : (
+                      "Send Message"
+                    )}
+                  </Button>
+                </form>
+              )}
             </motion.div>
 
             {/* Contact Info */}
@@ -118,8 +247,19 @@ export default function ContactPage() {
                       <Phone className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="font-medium text-dark-grey mb-1">Phone</p>
-                      <p className="text-mid-grey">+44 20 7946 0958</p>
+                      <p className="font-medium text-dark-grey mb-1">Phone & WhatsApp</p>
+                      <a href="tel:07375792237" className="text-mid-grey hover:text-gold transition-colors">07375792237</a>
+                      <div className="mt-2">
+                        <a 
+                          href="https://wa.me/447375792237" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center space-x-2 text-sm font-semibold text-gold hover:underline"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-11.7 8.38 8.38 0 0 1 3.8.9L22 2Z"/></svg>
+                          <span>Chat on WhatsApp</span>
+                        </a>
+                      </div>
                     </div>
                   </div>
 
@@ -129,7 +269,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="font-medium text-dark-grey mb-1">Email</p>
-                      <p className="text-mid-grey">orders@atsas.co.uk</p>
+                      <a href="mailto:sales@atsasci.com" className="text-mid-grey hover:text-gold transition-colors">sales@atsasci.com</a>
                     </div>
                   </div>
 
@@ -144,8 +284,6 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-
-
             </motion.div>
           </div>
         </div>
@@ -155,3 +293,4 @@ export default function ContactPage() {
     </div>
   );
 }
+

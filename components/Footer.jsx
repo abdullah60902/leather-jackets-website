@@ -26,17 +26,14 @@ export default function Footer() {
               You're Global Leather and Apparel Manufacturer
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-gold transition-colors">
-                <Facebook className="w-5 h-5" />
+              <a href="https://www.tiktok.com/@ATSASCI" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors" title="TikTok">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" /></svg>
               </a>
-              <a href="#" className="hover:text-gold transition-colors">
+              <a href="https://www.instagram.com/ATSASUK" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors" title="Instagram">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="hover:text-gold transition-colors">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="hover:text-gold transition-colors">
-                <Linkedin className="w-5 h-5" />
+              <a href="https://wa.me/447375792237" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors" title="WhatsApp">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-11.7 8.38 8.38 0 0 1 3.8.9L22 2Z" /></svg>
               </a>
             </div>
           </div>
@@ -72,11 +69,11 @@ export default function Footer() {
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="w-4 h-4 text-gold flex-shrink-0" />
-                <span className="text-sm text-off-white/70">+44 20 7946 0958</span>
+                <span className="text-sm text-off-white/70">07375792237</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 text-gold flex-shrink-0" />
-                <span className="text-sm text-off-white/70">orders@atsas.co.uk</span>
+                <span className="text-sm text-off-white/70">sales@atsasci.com</span>
               </li>
             </ul>
           </div>

@@ -1,7 +1,7 @@
 export const preDesignedJackets = [
   {
     id: "classic-men-leather-jacket",
-    name: "Classic Men's Leather Jacket",
+    name: "Graphic Leather Jacket",
     category: "mens",
     description: "A timeless masterpiece of leather craftsmanship. This classic jacket offers a perfect balance of rugged durability and sophisticated style.",
     price: 450,
@@ -151,7 +151,7 @@ export const preDesignedJackets = [
   },
   {
     id: "fur-brando",
-    name: "Fur Brando",
+    name: "Brando",
     category: "mens",
     description: "Luxurious fur-lined bomber for premium brands. Ultimate warmth and style.",
     price: 650,
@@ -267,7 +267,7 @@ export const preDesignedJackets = [
   },
   {
     id: "lambskin-jacket-red-lining",
-    name: "Lambskin Jacket with Red Lining",
+    name: "Lamb Skin with Embroidery",
     category: "mens",
     description: "Premium leather jacket with striking red interior lining. Ultimate luxury and comfort.",
     price: 580,
@@ -311,7 +311,7 @@ export const preDesignedJackets = [
   },
   {
     id: "baby-vest",
-    name: "Baby Vest",
+    name: "Best",
     category: "mens",
     description: "Adorable leather vest for kids. Perfect for youth programs and schools.",
     price: 280,
@@ -819,23 +819,23 @@ export const preDesignedJackets = [
     customizable: true,
   },
   {
-    id: "basic-tshirt",
-    name: "Basic Studio T-Shirt",
+    id: "signature-graphic-tshirt",
+    name: "Signature Graphic T-Shirt",
     category: "t-shirt",
-    description: "Simple, clean, and high-quality basic t-shirt for all occasions.",
-    price: 22,
+    description: "Premium heavy-cotton graphic t-shirt with a bold signature design. Part of our exclusive studio collection.",
+    price: 35,
     images: [
-      "/img/t-shirt.jpeg",
+      "/img/t-shirt-9.jpeg",
     ],
-    material: "100% Cotton",
+    material: "100% Premium Heavy Cotton",
     features: [
-      "Standard fit",
-      "Classic collar",
-      "Easy care",
-      "Affordable quality",
-      "Lightweight"
+      "High-density graphic print",
+      "Oversized street fit",
+      "Durable neck ribbing",
+      "Soft-wash finish",
+      "Reinforced seams"
     ],
-    availableColors: ["White", "Black"],
+    availableColors: ["Black", "White"],
     customizable: true,
   },
 
@@ -850,18 +850,6 @@ export const preDesignedJackets = [
     material: "Heavyweight Cotton Fleece",
     features: ["Double-lined hood", "Match-color drawstrings", "Pouch pocket", "Athletic rib with spandex", "Preshrunk"],
     availableColors: ["Black", "Navy", "Grey"],
-    customizable: true,
-  },
-  {
-    id: "hoodie-2",
-    name: "Urban Street Hoodie",
-    category: "hoodies",
-    description: "Modern fit hoodie with a sleek design, perfect for urban environments.",
-    price: 50,
-    images: ["/img/hoodie-fronte (2).jpeg", "/img/hoodie-back (2).jpeg"],
-    material: "Premium Cotton Blend",
-    features: ["Modern slim fit", "Metal tipped drawstrings", "Reinforced stitching", "Soft-touch fabric", "Breathable"],
-    availableColors: ["Charcoal", "Black"],
     customizable: true,
   },
   {
@@ -951,10 +939,10 @@ export const preDesignedJackets = [
 ];
 
 export const categories = [
-  { id: "all", name: "All Collection", count: 47 },
+  { id: "all", name: "All Collection", count: 46 },
   { id: "mens", name: "Mens Collection", count: 12 },
   { id: "women", name: "Women", count: 10 },
   { id: "t-shirt", name: "T shirt", count: 6 },
-  { id: "hoodies", name: "Hoodies", count: 10 },
+  { id: "hoodies", name: "Hoodies", count: 9 },
   { id: "accessories", name: "Accessories", count: 9 },
 ];

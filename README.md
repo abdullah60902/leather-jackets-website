@@ -164,7 +164,7 @@ Create `.env.local`:
 ```env
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_...
 STRIPE_SECRET_KEY=sk_test_...
-NEXT_PUBLIC_SITE_URL=https://atsas.co.uk
+NEXT_PUBLIC_SITE_URL=https://atsasci.com
 ```
 
 ---
@@ -258,8 +258,8 @@ leather-jackets/
 
 ## 📞 Support
 
-**Email:** orders@atsas.co.uk  
-**Phone:** +44 20 7946 0958  
+**Email:** sales@atsasci.com  
+**Phone:** 07375792237  
 **Address:** 123 Leather Lane, Shoreditch, London E1 6AN, UK
 
 ---

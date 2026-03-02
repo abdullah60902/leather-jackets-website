@@ -118,9 +118,9 @@ export default function PrivacyPage() {
                   For any privacy-related questions or to exercise your rights, contact our Data Protection Officer at:
                 </p>
                 <p className="text-mid-grey mt-4">
-                  <strong>Email:</strong> privacy@atsas.co.uk<br />
+                  <strong>Email:</strong> sales@atsasci.com<br />
                   <strong>Address:</strong> 123 Leather Lane, Shoreditch, London E1 6AN, UK<br />
-                  <strong>Phone:</strong> +44 20 7946 0958
+                  <strong>Phone:</strong> 07375792237
                 </p>
               </section>
             </div>

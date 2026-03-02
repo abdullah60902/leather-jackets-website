@@ -69,7 +69,7 @@ export const metadata = {
     title: 'ATSAS | Luxury Leather Jacket Manufacturing',
     description: 'Expertly crafted bespoke leather jackets for elite brands and individuals. MOQ 10 for bulk. Lifetime Warranty.',
     images: ['/og-image.jpg'],
-    creator: '@atsasleather',
+    creator: '@ATSASUK',
   },
   robots: {
     index: true,
@@ -114,15 +114,14 @@ export default function RootLayout({ children }) {
         },
         "contactPoint": {
           "@type": "ContactPoint",
-          "telephone": "+44-20-7946-0958",
+          "telephone": "+44-7375-792237",
           "contactType": "Sales",
           "areaServed": "Global",
           "availableLanguage": ["English"]
         },
         "sameAs": [
-          "https://facebook.com/atsasleather",
-          "https://instagram.com/atsasleather",
-          "https://linkedin.com/company/atsas-leather"
+          "https://www.tiktok.com/@ATSASCI",
+          "https://instagram.com/ATSASUK"
         ]
       },
       {

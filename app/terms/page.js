@@ -129,8 +129,8 @@ export default function TermsPage() {
                 <h2 className="text-2xl font-semibold text-dark-grey mb-4">13. Contact</h2>
                 <p className="text-mid-grey leading-relaxed">
                   For questions about these Terms, contact us at:<br />
-                  <strong>Email:</strong> legal@atsas.co.uk<br />
-                  <strong>Phone:</strong> +44 20 7946 0958
+                  <strong>Email:</strong> sales@atsasci.com<br />
+                  <strong>Phone:</strong> 07375792237
                 </p>
               </section>
             </div>

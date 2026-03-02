@@ -49,7 +49,7 @@ export default function FloatingActions() {
               exit={{ opacity: 0, scale: 0.5, y: 20 }}
               transition={{ type: "spring", damping: 20, stiffness: 300 }}
               className="relative"
-              href="https://wa.me/442079460958"
+              href="https://wa.me/447375792237"
               target="_blank"
               rel="noopener noreferrer"
             >

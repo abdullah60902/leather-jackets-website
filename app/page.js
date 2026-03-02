@@ -241,7 +241,7 @@ export default function Home() {
                 Experience the heritage of craftsmanship.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-6">
-                <a href="/designs" className="inline-block px-10 py-5 bg-gold text-dark-grey rounded-full font-bold hover:bg-white transition-all transform hover:scale-105 duration-300">
+                <a href="/contact" className="inline-block px-10 py-5 bg-gold text-dark-grey rounded-full font-bold hover:bg-white transition-all transform hover:scale-105 duration-300">
                   BROWSE ALL DESIGNS
                 </a>
                 <a href="/bulk" className="inline-block px-10 py-5 border border-white/30 text-white rounded-full font-medium hover:bg-white hover:text-dark-grey transition-all transform hover:scale-105 duration-300">
