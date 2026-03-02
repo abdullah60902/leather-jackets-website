@@ -65,7 +65,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start space-x-3">
                 <MapPin className="w-4 h-4 mt-1 text-gold flex-shrink-0" />
-                <span className="text-sm text-off-white/70">123 Leather Lane, Shoreditch, London E1 6AN, UK</span>
+                <span className="text-sm text-off-white/70">Hennerton way, High Wycombe, HP13 7UE</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="w-4 h-4 text-gold flex-shrink-0" />

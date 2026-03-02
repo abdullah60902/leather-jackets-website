@@ -119,7 +119,7 @@ export default function PrivacyPage() {
                 </p>
                 <p className="text-mid-grey mt-4">
                   <strong>Email:</strong> sales@atsasci.com<br />
-                  <strong>Address:</strong> 123 Leather Lane, Shoreditch, London E1 6AN, UK<br />
+                  <strong>Address:</strong> Hennerton way, High Wycombe, HP13 7UE, UK<br />
                   <strong>Phone:</strong> 07375792237
                 </p>
               </section>

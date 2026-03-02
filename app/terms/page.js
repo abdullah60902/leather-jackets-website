@@ -24,7 +24,7 @@ export default function TermsPage() {
                 <h2 className="text-2xl font-semibold text-dark-grey mb-4">2. Company Information</h2>
                 <p className="text-mid-grey leading-relaxed">
                   ATSAS Ltd is a company registered in England and Wales.<br />
-                  <strong>Registered Address:</strong> 123 Leather Lane, Shoreditch, London E1 6AN, UK<br />
+                  <strong>Registered Address:</strong> Hennerton way, High Wycombe, HP13 7UE, UK<br />
                   <strong>Company Number:</strong> 12345678<br />
                   <strong>VAT Number:</strong> GB123456789
                 </p>

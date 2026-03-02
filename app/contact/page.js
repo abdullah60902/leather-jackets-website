@@ -238,7 +238,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="font-medium text-dark-grey mb-1">Address</p>
-                      <p className="text-mid-grey">123 Leather Lane, Shoreditch<br />London E1 6AN, United Kingdom</p>
+                      <p className="text-mid-grey">Hennerton way, High Wycombe, <br />HP13 7UE, United Kingdom</p>
                     </div>
                   </div>
 

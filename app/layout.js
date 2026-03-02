@@ -107,9 +107,9 @@ export default function RootLayout({ children }) {
         "description": "ATSAS is a premier manufacturer of bespoke leather jackets, offering custom solutions for individuals and brands worldwide.",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "123 Leather Lane, Shoreditch",
-          "addressLocality": "London",
-          "postalCode": "E1 6AN",
+          "streetAddress": "Hennerton way",
+          "addressLocality": "High Wycombe",
+          "postalCode": "HP13 7UE",
           "addressCountry": "GB"
         },
         "contactPoint": {
@@ -141,9 +141,9 @@ export default function RootLayout({ children }) {
         "priceRange": "£££",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "123 Leather Lane",
-          "addressLocality": "London",
-          "postalCode": "E1 6AN",
+          "streetAddress": "Hennerton way",
+          "addressLocality": "High Wycombe",
+          "postalCode": "HP13 7UE",
           "addressCountry": "GB"
         },
         "geo": {

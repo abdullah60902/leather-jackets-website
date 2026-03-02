@@ -225,7 +225,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="bg-dark-grey rounded-3xl p-12 md:p-24 text-center text-white relative overflow-hidden shadow-2xl"
+            className="bg-dark-grey rounded-3xl p-8 sm:p-12 md:p-24 text-center text-white relative overflow-hidden shadow-2xl"
           >
             <div className="absolute inset-0 opacity-10">
                <img 
@@ -235,16 +235,16 @@ export default function Home() {
                />
             </div>
             <div className="relative z-10">
-              <h2 className="text-4xl md:text-6xl font-light mb-8">Ready to define your <br/><span className="font-serif italic text-gold font-normal">Brand Identity?</span></h2>
-              <p className="text-off-white/60 mb-12 max-w-2xl mx-auto text-lg font-light">
+              <h2 className="text-3xl sm:text-4xl md:text-6xl font-light mb-6 md:mb-8">Ready to define your <br/><span className="font-serif italic text-gold font-normal">Brand Identity?</span></h2>
+              <p className="text-off-white/60 mb-8 md:mb-12 max-w-2xl mx-auto text-base md:text-lg font-light px-4 sm:px-0">
                 Join 500+ global brands who trust ATSAS for their premium manufacturing needs. 
                 Experience the heritage of craftsmanship.
               </p>
-              <div className="flex flex-col sm:flex-row justify-center gap-6">
-                <a href="/contact" className="inline-block px-10 py-5 bg-gold text-dark-grey rounded-full font-bold hover:bg-white transition-all transform hover:scale-105 duration-300">
+              <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6 px-4 sm:px-0">
+                <a href="/designs" className="inline-block px-8 md:px-10 py-4 md:py-5 bg-gold text-dark-grey rounded-full font-bold hover:bg-white transition-all transform hover:scale-105 duration-300">
                   BROWSE ALL DESIGNS
                 </a>
-                <a href="/bulk" className="inline-block px-10 py-5 border border-white/30 text-white rounded-full font-medium hover:bg-white hover:text-dark-grey transition-all transform hover:scale-105 duration-300">
+                <a href="/contact" className="inline-block px-8 md:px-10 py-4 md:py-5 border border-white/30 text-white rounded-full font-medium hover:bg-white hover:text-dark-grey transition-all transform hover:scale-105 duration-300">
                   GET IN TOUCH
                 </a>
               </div>
