@@ -105,8 +105,11 @@ export default function AdminDashboard() {
   }, []);
 
   const handleLogout = async () => {
-    // Clear cookie (actually API should do this, but for now we just redirect)
-    document.cookie = "admin_token=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+    try {
+      await fetch("/api/admin/logout", { method: "POST" });
+    } catch (err) {
+      console.error("Logout error:", err);
+    }
     router.push("/admin/login");
   };
 
