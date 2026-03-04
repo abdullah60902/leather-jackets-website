@@ -20,8 +20,14 @@ export async function GET() {
       return NextResponse.json({ success: false, message: "Invalid session" }, { status: 401 });
     }
 
-    const data = await getSubmissions();
-    return NextResponse.json({ success: true, data });
+    const result = await getSubmissions();
+    
+    // If result has an error property (from our new debug logic)
+    if (result.error) {
+      return NextResponse.json({ success: false, message: result.error, data: [] });
+    }
+
+    return NextResponse.json({ success: true, data: result });
   } catch (error) {
     return NextResponse.json({ success: false, error: error.message }, { status: 500 });
   }
