@@ -34,6 +34,7 @@ export default function AdminDashboard() {
   const [replyMessage, setReplyMessage] = useState("");
   const [isSending, setIsSending] = useState(false);
   const [sendError, setSendError] = useState(null);
+  const [fetchError, setFetchError] = useState(null);
   const router = useRouter();
 
   const handleCopyEmail = (email) => {
@@ -87,9 +88,13 @@ export default function AdminDashboard() {
       const data = await res.json();
       if (data.success) {
         setSubmissions(data.data || []);
+        setFetchError(null);
+      } else {
+        setFetchError(data.message || "Failed to load submissions");
       }
     } catch (err) {
       console.error("Fetch error:", err);
+      setFetchError("System Error: Could not reach the API.");
     } finally {
       setLoading(false);
     }
@@ -178,6 +183,22 @@ export default function AdminDashboard() {
             </motion.div>
           ))}
         </div>
+
+        {/* Error Alert */}
+        {fetchError && (
+          <motion.div 
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            className="mb-8 p-4 bg-red-50 border border-red-200 rounded-2xl flex items-center gap-4 text-red-600"
+          >
+            <AlertCircle className="w-6 h-6" />
+            <div>
+              <p className="font-bold">Connection Issue</p>
+              <p className="text-sm opacity-90">{fetchError}</p>
+              <p className="text-[10px] mt-1 font-mono uppercase">Check Vercel Environment Variables: GITHUB_TOKEN, GITHUB_REPO, GITHUB_OWNER</p>
+            </div>
+          </motion.div>
+        )}
 
         {/* Search and List */}
         <div className="bg-white rounded-2xl shadow-card border border-beige overflow-hidden">
