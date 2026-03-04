@@ -311,7 +311,7 @@ export const preDesignedJackets = [
   },
   {
     id: "baby-vest",
-    name: "Best",
+    name: "Vest",
     category: "mens",
     description: "Adorable leather vest for kids. Perfect for youth programs and schools.",
     price: 280,
@@ -820,7 +820,7 @@ export const preDesignedJackets = [
   },
   {
     id: "signature-graphic-tshirt",
-    name: "Signature Graphic T-Shirt",
+    name: "Puff print",
     category: "t-shirt",
     description: "Premium heavy-cotton graphic t-shirt with a bold signature design. Part of our exclusive studio collection.",
     price: 35,

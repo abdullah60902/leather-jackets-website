@@ -15,6 +15,7 @@ export default function ContactPage() {
     phone: "",
     company: "",
     quantity: "10-24",
+    categories: [], // New multi-select field
     message: "",
   });
 
@@ -28,6 +29,24 @@ export default function ContactPage() {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+
+  const toggleCategory = (category) => {
+    setFormData((prev) => {
+      const current = prev.categories || [];
+      const updated = current.includes(category)
+        ? current.filter((c) => c !== category)
+        : [...current, category];
+      return { ...prev, categories: updated };
+    });
+  };
+
+  const productCategories = [
+    "Men's Jackets",
+    "Women's Jackets",
+    "Accessories",
+    "T-Shirts",
+    "Hoodies"
+  ];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -56,6 +75,7 @@ export default function ContactPage() {
         phone: "",
         company: "",
         quantity: "10-24",
+        categories: [],
         message: "",
       });
     } catch (err) {
@@ -181,6 +201,31 @@ export default function ContactPage() {
                       <option>100-249</option>
                       <option>250+</option>
                     </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-dark-grey mb-3">Product Categories Of Interest (Select Multiple)</label>
+                    <div className="grid grid-cols-2 lg:grid-cols-2 gap-3">
+                      {productCategories.map((cat) => (
+                        <button
+                          key={cat}
+                          type="button"
+                          onClick={() => toggleCategory(cat)}
+                          className={`flex items-center gap-2 px-4 py-2 rounded-lg border text-sm font-medium transition-all ${
+                            formData.categories?.includes(cat)
+                              ? "bg-gold/10 border-gold text-dark-grey shadow-sm"
+                              : "bg-white border-light-grey text-mid-grey hover:border-beige"
+                          }`}
+                        >
+                          <div className={`w-4 h-4 rounded-md border flex items-center justify-center transition-colors ${
+                            formData.categories?.includes(cat) ? "bg-gold border-gold" : "bg-transparent border-light-grey"
+                          }`}>
+                            {formData.categories?.includes(cat) && <CheckCircle size={10} className="text-dark-grey" />}
+                          </div>
+                          {cat}
+                        </button>
+                      ))}
+                    </div>
                   </div>
 
                   <div>

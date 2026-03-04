@@ -135,7 +135,7 @@ export default function DesignsPage() {
                           Get in Touch
                         </Button>
                       </Link>
-                      {jacket.images.length > 1 && (
+                      {jacket.images.length > 1 && !['mens', 'women', 'accessories'].includes(jacket.category) && (
                         <p className="text-[10px] text-center text-mid-grey uppercase tracking-widest font-semibold italic">Multiple Views Available</p>
                       )}
                     </div>
@@ -221,29 +221,34 @@ export default function DesignsPage() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 overflow-hidden">
                 {/* Left: Zoomable Image */}
                 <div className="bg-cream relative overflow-hidden lg:max-h-[80vh] flex flex-col">
-                  <div className="flex-1 p-8 flex items-center justify-center min-h-[400px]">
+                  <div 
+                    className="flex-1 p-8 flex items-center justify-center min-h-[400px] cursor-zoom-in overflow-hidden"
+                    onMouseMove={handleMouseMove}
+                    onMouseEnter={() => setZoomLevel(2)}
+                    onMouseLeave={() => {
+                      setZoomLevel(1);
+                      setMousePosition({ x: 50, y: 50 });
+                    }}
+                  >
                     <AnimatePresence mode="wait">
                       <motion.img
                         key={activeImageIndex}
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -20 }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
                         src={selectedJacket.images[activeImageIndex]}
                         alt={selectedJacket.name}
-                        className="transition-transform duration-500 ease-out cursor-crosshair max-w-full h-auto object-contain"
+                        className="transition-transform duration-150 ease-out max-w-full h-auto object-contain pointer-events-none"
                         style={{ 
                           transform: `scale(${zoomLevel})`,
                           transformOrigin: `${mousePosition.x}% ${mousePosition.y}%`,
                         }}
-                        onMouseMove={handleMouseMove}
-                        onMouseEnter={() => setZoomLevel(1.5)}
-                        onMouseLeave={() => setZoomLevel(1)}
                       />
                     </AnimatePresence>
                   </div>
                   
                   {/* Image Selector / Views Toggle */}
-                  {selectedJacket.images.length > 1 && (
+                  {selectedJacket.images.length > 1 && !['mens', 'women', 'accessories'].includes(selectedJacket.category) && (
                     <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
                       <div className="bg-white/90 backdrop-blur-sm p-1.5 rounded-full shadow-lg border border-beige flex gap-2">
                         {selectedJacket.images.map((_, idx) => (

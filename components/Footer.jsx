@@ -23,7 +23,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-sm text-off-white/70 leading-relaxed mb-6">
-              You're Global Leather and Apparel Manufacturer
+              Your Global Leather and Apparel Manufacturer Since 2010
             </p>
             <div className="flex space-x-4">
               <a href="https://www.tiktok.com/@ATSASCI" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors" title="TikTok">

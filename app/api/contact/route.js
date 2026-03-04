@@ -1,11 +1,13 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { saveSubmission } from '@/lib/github-db';
 
 export async function POST(req) {
   try {
-    const { firstName, lastName, email, phone, company, quantity, message } = await req.json();
+    const { firstName, lastName, email, phone, company, quantity, categories, message } = await req.json();
 
     // HARDCODED CREDENTIALS (As requested to resolve environment variable issues)
+    // DIRECT CREDENTIALS (As requested)
     const USER_EMAIL = 'sales@atsasci.com';
     const USER_PASS = '$Almantahir17';
     const SMTP_HOST = 'smtp.office365.com';
@@ -83,7 +85,15 @@ export async function POST(req) {
         </tr>
         <tr>
           <td style="padding: 10px; border-bottom: 1px solid #f0f0f0; font-weight: bold; color: #333;">Company:</td>
-          <td style="padding: 10px; border-bottom: 10px solid transparent; color: #666;">${company || 'N/A'}</td>
+          <td style="padding: 10px; border-bottom: 1px solid #f0f0f0; color: #666;">${company || 'N/A'}</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border-bottom: 10px solid transparent; font-weight: bold; color: #333;">Categories:</td>
+          <td style="padding: 10px; border-bottom: 10px solid transparent; color: #666;">
+            ${categories && categories.length > 0 
+              ? categories.map(c => `<span style="display: inline-block; background: #f0f0f0; padding: 2px 8px; border-radius: 4px; margin: 2px; font-size: 12px;">${c}</span>`).join('') 
+              : 'None selected'}
+          </td>
         </tr>
       </table>
       <div style="margin-top: 20px; padding: 15px; background-color: #f9f9f9; border-radius: 5px; border-left: 4px solid ${BRAND_COLOR};">
@@ -145,6 +155,9 @@ export async function POST(req) {
       transporter.sendMail(userMailOptions)
     ]);
     console.log('Emails sent successfully!');
+
+    // 5. Save to GitHub Database
+    await saveSubmission({ firstName, lastName, email, phone, company, quantity, categories: categories || [], message });
 
     return NextResponse.json({ 
       success: true, 
