@@ -96,7 +96,7 @@ export default function Home() {
       <section className="py-24 bg-white border-t border-gray-100">
         <div className="container mx-auto px-6 max-w-5xl">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-heading text-dark-grey mb-12 text-center">Why Choose ATSAS for Custom Leather Jacket Manufacturing?</h2>
+            <h2 className="text-3xl font-heading text-dark-grey mb-12 text-center">Why choose ATSAS as your Manufacturer</h2>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-gray-50 p-6 rounded-lg">
