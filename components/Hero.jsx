@@ -34,7 +34,7 @@ export default function Hero() {
         className="absolute inset-0 z-0"
       >
         <img
-          src="/img/hero-section-img.jpg"
+          src="/img/hero-new.jpeg"
           alt="Bespoke Leather Jacket Manufacturing Workshop London"
           className="w-full h-full object-cover"
         />
