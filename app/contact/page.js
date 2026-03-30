@@ -41,8 +41,8 @@ export default function ContactPage() {
   };
 
   const productCategories = [
-    "Men's Jackets",
-    "Women's Jackets",
+    "Leather Jackets",
+    "Sports",
     "Accessories",
     "T-Shirts",
     "Hoodies"

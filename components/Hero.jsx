@@ -49,7 +49,7 @@ export default function Hero() {
         <div className="absolute bottom-[20%] right-[10%] w-96 h-96 bg-gold/5 rounded-full blur-[120px] animate-pulse delay-1000" />
       </div>
 
-      <div className="container relative z-10 px-6 sm:px-12 mx-auto pt-24 md:pt-0">
+      <div className="container relative z-10 px-6 sm:px-12 mx-auto pt-4 md:pt-0">
         <div className="max-w-4xl">
           <motion.div
             variants={containerVariants}
@@ -61,7 +61,7 @@ export default function Hero() {
 
             <motion.h1
               variants={itemVariants}
-              className="font-sans font-light text-2xl sm:text-4xl md:text-6xl lg:text-7xl leading-[0.95] text-white tracking-tighter"
+              className="font-sans font-light text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.95] text-white tracking-tighter"
             >
               Your Global <br />
               <span className="font-serif italic font-normal text-gold">Leather and Apparel Manufacturer</span>
@@ -69,7 +69,7 @@ export default function Hero() {
 
             <motion.p
               variants={itemVariants}
-              className="text-sm sm:text-base md:text-lg text-off-white/80 max-w-lg font-light leading-relaxed tracking-wide italic"
+              className="text-base sm:text-lg md:text-xl text-off-white/80 max-w-lg font-light leading-relaxed tracking-wide italic"
             >
               "Crafted With Precision To Elevate Your Future."
             </motion.p>

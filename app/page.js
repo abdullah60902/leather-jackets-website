@@ -71,7 +71,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="group p-12 bg-off-white hover:bg-dark-grey transition-all duration-700 rounded-xl text-left border border-beige/50"
+                className="group p-12 bg-off-white hover:bg-dark-grey transition-all duration-700 rounded-xl text-center md:text-left border border-beige/50 flex flex-col items-center md:items-start"
               >
                 <div className="text-gold group-hover:scale-110 transition-transform duration-500 mb-8 p-4 bg-white rounded-lg w-fit shadow-sm">
                   {feature.icon}

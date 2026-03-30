@@ -2,7 +2,7 @@ export const preDesignedJackets = [
   {
     id: "classic-men-leather-jacket",
     name: "Graphic Leather Jacket",
-    category: "mens",
+    category: "leather-jackets",
     description: "A timeless masterpiece of leather craftsmanship. This classic jacket offers a perfect balance of rugged durability and sophisticated style.",
     price: 450,
     images: [
@@ -24,7 +24,7 @@ export const preDesignedJackets = [
   {
     id: "elegant-women-leather-jacket",
     name: "Elegant Women's Leather Jacket",
-    category: "women",
+    category: "leather-jackets",
     description: "Sophisticated and sleek, this women's leather jacket is designed to provide a flattering silhouette while ensuring maximum comfort.",
     price: 420,
     images: [
@@ -84,7 +84,7 @@ export const preDesignedJackets = [
   {
     id: "biker-protective-leather-jacket",
     name: "Biker Protective Leather Jacket",
-    category: "mens",
+    category: "leather-jackets",
     description: "Premium protective biker jacket with quilted shoulders. Perfect for motorcycle clubs and brand uniforms.",
     price: 450,
     images: [
@@ -106,7 +106,7 @@ export const preDesignedJackets = [
   {
     id: "army-brown",
     name: "Army Brown",
-    category: "mens",
+    category: "leather-jackets",
     description: "Distressed brown leather with vintage hardware. Ideal for brands seeking a rugged aesthetic.",
     price: 480,
     images: [
@@ -130,7 +130,7 @@ export const preDesignedJackets = [
   {
     id: "baseball",
     name: "Baseball",
-    category: "mens",
+    category: "leather-jackets",
     description: "Classic baseball bomber jacket with premium leather. Perfect for corporate teams and clubs.",
     price: 420,
     images: [
@@ -152,7 +152,7 @@ export const preDesignedJackets = [
   {
     id: "fur-brando",
     name: "Brando",
-    category: "mens",
+    category: "leather-jackets",
     description: "Luxurious fur-lined bomber for premium brands. Ultimate warmth and style.",
     price: 650,
     images: [
@@ -176,7 +176,7 @@ export const preDesignedJackets = [
   {
     id: "steel-vest",
     name: "Steel Vest",
-    category: "mens",
+    category: "leather-jackets",
     description: "Traditional varsity vest with leather details. Perfect for schools, clubs, and teams.",
     price: 380,
     images: [
@@ -200,7 +200,7 @@ export const preDesignedJackets = [
   {
     id: "77-red",
     name: "77 Red",
-    category: "mens",
+    category: "leather-jackets",
     description: "Minimalist racing heritage design. Clean lines, perfect for modern brands.",
     price: 480,
     images: [
@@ -224,7 +224,7 @@ export const preDesignedJackets = [
   {
     id: "hank-white-embroidered",
     name: "Hank White Embroidered",
-    category: "mens",
+    category: "leather-jackets",
     description: "Sophisticated embroidered leather jacket for premium branding. Professional and luxurious.",
     price: 520,
     images: [
@@ -246,7 +246,7 @@ export const preDesignedJackets = [
   {
     id: "evil-white",
     name: "Evil White",
-    category: "mens",
+    category: "leather-jackets",
     description: "Modern streetwear design with unique style. Perfect for youth brands and urban clubs.",
     price: 460,
     images: [
@@ -268,7 +268,7 @@ export const preDesignedJackets = [
   {
     id: "lambskin-jacket-red-lining",
     name: "Lamb Skin with Embroidery",
-    category: "mens",
+    category: "leather-jackets",
     description: "Premium leather jacket with striking red interior lining. Ultimate luxury and comfort.",
     price: 580,
     images: [
@@ -290,7 +290,7 @@ export const preDesignedJackets = [
   {
     id: "fur-leather-jacket",
     name: "Fur Leather Jacket",
-    category: "mens",
+    category: "leather-jackets",
     description: "Luxurious leather jacket with fur collar. Perfect for premium brands seeking ultimate warmth.",
     price: 620,
     images: [
@@ -312,7 +312,7 @@ export const preDesignedJackets = [
   {
     id: "baby-vest",
     name: "Vest",
-    category: "mens",
+    category: "leather-jackets",
     description: "Adorable leather vest for kids. Perfect for youth programs and schools.",
     price: 280,
     images: [
@@ -336,7 +336,7 @@ export const preDesignedJackets = [
   {
     id: "anne-bonny",
     name: "Anne Bonny",
-    category: "women",
+    category: "leather-jackets",
     description: "Bold and adventurous design inspired by classic pirate aesthetics with a modern twist.",
     price: 550,
     images: [
@@ -358,7 +358,7 @@ export const preDesignedJackets = [
   {
     id: "aretha-red-line",
     name: "Aretha Red Line",
-    category: "women",
+    category: "leather-jackets",
     description: "Elegant black leather jacket with striking red accent lines. Perfect for a statement look.",
     price: 520,
     images: [
@@ -380,7 +380,7 @@ export const preDesignedJackets = [
   {
     id: "baseball-w",
     name: "Baseball W",
-    category: "women",
+    category: "leather-jackets",
     description: "Classic varsity style adapted for a feminine fit. Sporty yet chic.",
     price: 450,
     images: [
@@ -402,7 +402,7 @@ export const preDesignedJackets = [
   {
     id: "dolly-red",
     name: "Dolly Red",
-    category: "women",
+    category: "leather-jackets",
     description: "Vibrant red leather jacket designed to turn heads. Soft, supple, and stylish.",
     price: 480,
     images: [
@@ -424,7 +424,7 @@ export const preDesignedJackets = [
   {
     id: "monroe-w-deluxe",
     name: "Monroe W Deluxe",
-    category: "women",
+    category: "leather-jackets",
     description: "Timeless Hollywood glamour. A deluxe leather jacket that exudes elegance.",
     price: 600,
     images: [
@@ -446,7 +446,7 @@ export const preDesignedJackets = [
   {
     id: "white-aretha",
     name: "White Aretha",
-    category: "women",
+    category: "leather-jackets",
     description: "Pristine white leather jacket for a clean, sophisticated look.",
     price: 520,
     images: [
@@ -468,7 +468,7 @@ export const preDesignedJackets = [
   {
     id: "rivets-black-boogie",
     name: "Rivets Black Boogie",
-    category: "women",
+    category: "leather-jackets",
     description: "Edgy black leather jacket embellished with silver rivets. Rock and roll style.",
     price: 580,
     images: [
@@ -490,7 +490,7 @@ export const preDesignedJackets = [
   {
     id: "purple-boogie",
     name: "Purple Boogie",
-    category: "women",
+    category: "leather-jackets",
     description: "Unique purple leather jacket for those who dare to be different.",
     price: 500,
     images: [
@@ -512,7 +512,7 @@ export const preDesignedJackets = [
   {
     id: "wild-cheetah",
     name: "Wild Cheetah",
-    category: "women",
+    category: "leather-jackets",
     description: "Exotic cheetah print design for the bold fashionista.",
     price: 650,
     images: [
@@ -940,9 +940,9 @@ export const preDesignedJackets = [
 
 export const categories = [
   { id: "all", name: "All Collection", count: 46 },
-  { id: "mens", name: "Mens Collection", count: 12 },
-  { id: "women", name: "Women", count: 10 },
+  { id: "leather-jackets", name: "Leather Jackets", count: 22 },
   { id: "t-shirt", name: "T shirt", count: 6 },
   { id: "hoodies", name: "Hoodies", count: 9 },
   { id: "accessories", name: "Accessories", count: 9 },
+  { id: "sports", name: "Sports", count: 0 },
 ];

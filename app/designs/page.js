@@ -135,7 +135,7 @@ export default function DesignsPage() {
                           Get in Touch
                         </Button>
                       </Link>
-                      {jacket.images.length > 1 && !['mens', 'women', 'accessories'].includes(jacket.category) && (
+                      {jacket.images.length > 1 && !['leather-jackets', 'accessories'].includes(jacket.category) && (
                         <p className="text-[10px] text-center text-mid-grey uppercase tracking-widest font-semibold italic">Multiple Views Available</p>
                       )}
                     </div>
@@ -248,7 +248,7 @@ export default function DesignsPage() {
                   </div>
                   
                   {/* Image Selector / Views Toggle */}
-                  {selectedJacket.images.length > 1 && !['mens', 'women', 'accessories'].includes(selectedJacket.category) && (
+                  {selectedJacket.images.length > 1 && !['leather-jackets', 'accessories'].includes(selectedJacket.category) && (
                     <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
                       <div className="bg-white/90 backdrop-blur-sm p-1.5 rounded-full shadow-lg border border-beige flex gap-2">
                         {selectedJacket.images.map((_, idx) => (
