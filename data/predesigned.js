@@ -936,13 +936,85 @@ export const preDesignedJackets = [
     availableColors: ["Sandstone", "Slate"],
     customizable: true,
   },
+  {
+    id: "sports-design-1",
+    name: "Performance Sports Top",
+    category: "sports",
+    description: "High-performance athletic top designed for maximum breathability and movement during intense training sessions.",
+    price: 45,
+    images: ["/img/sports.jpeg"],
+    material: "Technical Breathable Fabric",
+    features: [
+      "Moisture-wicking technology",
+      "Ergonomic seams",
+      "Lightweight construction",
+      "Quick-dry finish",
+      "Reflective details"
+    ],
+    availableColors: ["Black", "Neon Blue"],
+    customizable: true,
+  },
+  {
+    id: "sports-design-2",
+    name: "Elite Training Jacket",
+    category: "sports",
+    description: "Premium sports jacket optimized for outdoor training and warm-ups. Features wind-resistant technology.",
+    price: 65,
+    images: ["/img/sports1.jpeg"],
+    material: "Wind-Resistant Polymer",
+    features: [
+      "Weather-proof exterior",
+      "Secure zip pockets",
+      "Adjustable cuffs",
+      "Ventilation panels",
+      "Sleek athletic fit"
+    ],
+    availableColors: ["Charcoal", "Deep Navy"],
+    customizable: true,
+  },
+  {
+    id: "sports-design-3",
+    name: "Athletic Compression Gear",
+    category: "sports",
+    description: "Advanced compression gear designed to enhance performance and speed up muscle recovery.",
+    price: 55,
+    images: ["/img/sport2.jpeg"],
+    material: "High-Stretch Compression Fabric",
+    features: [
+      "Muscle support design",
+      "4-way stretch",
+      "Anti-odor technology",
+      "Seamless construction",
+      "Temperature regulation"
+    ],
+    availableColors: ["Black", "Slate Grey"],
+    customizable: true,
+  },
+  {
+    id: "sports-design-4",
+    name: "Pro-Series Sports Outerwear",
+    category: "sports",
+    description: "Our range-topping sports outerwear for professional athletes and serious fitness enthusiasts.",
+    price: 75,
+    images: ["/img/sports3.jpeg"],
+    material: "Premium Triple-Layer Tech Fabric",
+    features: [
+      "Thermal insulation",
+      "Waterproof zippers",
+      "Enhanced durability",
+      "Hooded protection",
+      "Signature collection"
+    ],
+    availableColors: ["Midnight Black", "Electric Red"],
+    customizable: true,
+  },
 ];
 
 export const categories = [
-  { id: "all", name: "All Collection", count: 46 },
+  { id: "all", name: "All Collection", count: 50 },
   { id: "leather-jackets", name: "Leather Jackets", count: 22 },
   { id: "t-shirt", name: "T shirt", count: 6 },
   { id: "hoodies", name: "Hoodies", count: 9 },
   { id: "accessories", name: "Accessories", count: 9 },
-  { id: "sports", name: "Sports", count: 0 },
+  { id: "sports", name: "Sports", count: 4 },
 ];

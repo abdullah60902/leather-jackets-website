@@ -66,8 +66,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ATSAS | Luxury Leather Jacket Manufacturing',
-    description: 'Expertly crafted bespoke leather jackets for elite brands and individuals. MOQ 10 for bulk. Lifetime Warranty.',
+    title: 'Genuine Custom Leather, Apparel & Accessories Manufacturer for Growing Brands',
+    description: 'Built for ambitious brands. We collaborate with fashion brands startups and private labels to produce genuine leather jackets, apparel, and accessories. From concept development and sampling to full scale bulk production, our process is built to deliver consistency, precision, and on time delivery and low MOQ, helping you bring products to market faster and scale with confidence.',
     images: ['/og-image.jpg'],
     creator: '@ATSASUK',
   },
