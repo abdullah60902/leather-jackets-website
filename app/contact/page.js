@@ -28,6 +28,8 @@ export default function ContactPage() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    // Clear error when user starts typing again
+    if (status.error) setStatus((prev) => ({ ...prev, error: null }));
   };
 
   const toggleCategory = (category) => {
