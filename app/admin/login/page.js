@@ -71,7 +71,7 @@ export default function AdminLoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-4 py-3 border border-light-grey rounded-xl focus:ring-2 focus:ring-gold focus:border-transparent outline-none transition-all bg-off-white/50"
-                placeholder="admin@atsasci.com"
+                placeholder=""
               />
             </div>
 
