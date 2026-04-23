@@ -21,7 +21,8 @@ import {
   Check,
   X,
   Send,
-  AlertCircle
+  AlertCircle,
+  Trash2
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 
@@ -111,6 +112,27 @@ export default function AdminDashboard() {
       console.error("Logout error:", err);
     }
     router.push("/admin/login");
+  };
+
+  const handleDelete = async (id) => {
+    if (!confirm("Are you sure you want to delete this inquiry?")) return;
+    
+    try {
+      const res = await fetch("/api/admin/submissions/delete", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id }),
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        setSubmissions(prev => prev.filter(sub => sub.id !== id));
+      } else {
+        alert(data.message || "Failed to delete");
+      }
+    } catch (err) {
+      alert("An error occurred while deleting");
+    }
   };
 
   const filtered = submissions.filter(s => 
@@ -278,6 +300,13 @@ export default function AdminDashboard() {
                     </div>
 
                     <div className="flex items-center justify-end gap-3 mt-4 md:mt-0">
+                      <button 
+                        onClick={() => handleDelete(sub.id)}
+                        className="p-2.5 text-red-500 hover:bg-red-50 rounded-full transition-all border border-transparent hover:border-red-100"
+                        title="Delete Inquiry"
+                      >
+                        <Trash2 className="w-5 h-5" />
+                      </button>
                       <button 
                         onClick={() => handleCopyEmail(sub.email)}
                         className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold transition-all border ${

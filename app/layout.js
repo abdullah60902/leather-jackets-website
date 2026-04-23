@@ -170,6 +170,7 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
         />
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
       </head>
       <body className={`${inter.variable} ${outfit.variable} antialiased`}>
         <Providers>

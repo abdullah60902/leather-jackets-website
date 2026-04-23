@@ -2,9 +2,67 @@ import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { saveSubmission } from '@/lib/github-db';
 
+const rateLimitMap = new Map();
+
 export async function POST(req) {
   try {
-    const { firstName, lastName, email, phone, company, quantity, categories, message } = await req.json();
+    const ip = req.headers.get('x-forwarded-for') || 'unknown';
+    const now = Date.now();
+    
+    // 1. Rate Limiting (1 request per 2 minutes per IP)
+    if (rateLimitMap.has(ip)) {
+      const lastRequest = rateLimitMap.get(ip);
+      if (now - lastRequest < 120000) {
+        return NextResponse.json({ success: false, error: "Too many requests. Please wait 2 minutes." }, { status: 429 });
+      }
+    }
+    rateLimitMap.set(ip, now);
+
+    const { firstName, lastName, email, phone, company, quantity, categories, message, recaptchaToken } = await req.json();
+
+    // 2. reCAPTCHA Verification
+    if (!recaptchaToken) {
+      return NextResponse.json({ success: false, error: "Captcha verification failed." }, { status: 400 });
+    }
+    
+    const recaptchaRes = await fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`, {
+      method: 'POST'
+    });
+    const recaptchaData = await recaptchaRes.json();
+    if (!recaptchaData.success) {
+      return NextResponse.json({ success: false, error: "Invalid Captcha." }, { status: 400 });
+    }
+
+    // 3. Sanitization & Validation
+    const sanitize = (str) => str.replace(/<[^>]*>?/gm, '').trim();
+    
+    const sFirstName = sanitize(firstName);
+    const sLastName = sanitize(lastName);
+    const sMessage = sanitize(message);
+    const sEmail = sanitize(email).toLowerCase();
+
+    // Name validation (only letters and spaces)
+    const nameRegex = /^[a-zA-Z\s]{2,30}$/;
+    if (!nameRegex.test(sFirstName) || !nameRegex.test(sLastName)) {
+      return NextResponse.json({ success: false, error: "Name must contain only letters (2-30 characters)." }, { status: 400 });
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(sEmail)) {
+      return NextResponse.json({ success: false, error: "Please enter a valid email address." }, { status: 400 });
+    }
+
+    // Message validation (minimum 25 characters)
+    if (sMessage.length < 25) {
+      return NextResponse.json({ success: false, error: "Message is too short. Please provide more details (min 25 chars)." }, { status: 400 });
+    }
+
+    // Block common spam keywords
+    const spamKeywords = ['crypto', 'viagra', 'casino', 'lottery', 'inheritance'];
+    if (spamKeywords.some(kw => sMessage.toLowerCase().includes(kw))) {
+       return NextResponse.json({ success: false, error: "Message contains prohibited content." }, { status: 400 });
+    }
 
     // HARDCODED CREDENTIALS (As requested to resolve environment variable issues)
     // DIRECT CREDENTIALS (As requested)
@@ -69,11 +127,11 @@ export async function POST(req) {
       <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-top: 25px; border-collapse: collapse;">
         <tr>
           <td style="padding: 10px; border-bottom: 1px solid #f0f0f0; font-weight: bold; color: #333; width: 30%;">Customer Name:</td>
-          <td style="padding: 10px; border-bottom: 1px solid #f0f0f0; color: #666;">${firstName} ${lastName}</td>
+          <td style="padding: 10px; border-bottom: 1px solid #f0f0f0; color: #666;">${sFirstName} ${sLastName}</td>
         </tr>
         <tr>
           <td style="padding: 10px; border-bottom: 1px solid #f0f0f0; font-weight: bold; color: #333;">Email:</td>
-          <td style="padding: 10px; border-bottom: 1px solid #f0f0f0; color: #666;">${email}</td>
+          <td style="padding: 10px; border-bottom: 1px solid #f0f0f0; color: #666;">${sEmail}</td>
         </tr>
         <tr>
           <td style="padding: 10px; border-bottom: 1px solid #f0f0f0; font-weight: bold; color: #333;">Phone:</td>
@@ -98,7 +156,7 @@ export async function POST(req) {
       </table>
       <div style="margin-top: 20px; padding: 15px; background-color: #f9f9f9; border-radius: 5px; border-left: 4px solid ${BRAND_COLOR};">
         <p style="margin: 0 0 10px 0; font-weight: bold; color: #333;">Message:</p>
-        <p style="margin: 0; color: #666; line-height: 1.6;">${message.replace(/\n/g, '<br>')}</p>
+        <p style="margin: 0; color: #666; line-height: 1.6;">${sMessage.replace(/\n/g, '<br>')}</p>
       </div>
     `;
 
@@ -106,7 +164,7 @@ export async function POST(req) {
     const adminMailOptions = {
       from: `"ATSAS Order Alert" <${USER_EMAIL}>`,
       to: USER_EMAIL,
-      replyTo: email,
+      replyTo: sEmail,
       subject: "New Order Inquiry Received!",
       html: `
         ${emailHeader}
@@ -125,14 +183,14 @@ export async function POST(req) {
     // 2) User Confirmation Email (Receipt to user)
     const userMailOptions = {
       from: `"ATSAS Sales" <${USER_EMAIL}>`,
-      to: email,
+      to: sEmail,
       subject: "Your Order Inquiry Has Been Received!",
       html: `
         ${emailHeader}
         <tr>
           <td style="padding: 40px 30px;">
             <h1 style="margin: 0 0 20px 0; font-size: 24px; color: ${DARK_GREY}; text-align: center;">Order Received!</h1>
-            <p style="font-size: 16px; color: #666; line-height: 1.5;">Hello ${firstName},</p>
+            <p style="font-size: 16px; color: #666; line-height: 1.5;">Hello ${sFirstName},</p>
             <p style="font-size: 16px; color: #666; line-height: 1.5;">Thank you for your order inquiry! We have received it and our sales team will process it and reach out within 24 hours.</p>
             
             <div style="margin: 30px 0; padding: 20px; border: 1px dashed ${BRAND_COLOR}; border-radius: 8px; text-align: center;">
@@ -157,7 +215,7 @@ export async function POST(req) {
     console.log('Emails sent successfully!');
 
     // 5. Save to GitHub Database
-    await saveSubmission({ firstName, lastName, email, phone, company, quantity, categories: categories || [], message });
+    await saveSubmission({ firstName: sFirstName, lastName: sLastName, email: sEmail, phone, company, quantity, categories: categories || [], message: sMessage });
 
     return NextResponse.json({ 
       success: true, 

@@ -6,18 +6,27 @@ import Link from "next/link";
 import { useMemo } from "react";
 
 export default function DesignCarousel() {
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
   // Extract and shuffle all first images from the products
   const productImages = useMemo(() => {
-    return preDesignedJackets
+    const baseImages = preDesignedJackets
       .filter(jacket => jacket.images && jacket.images.length > 0)
       .map(jacket => ({
         id: jacket.id,
         image: jacket.images[0],
         name: jacket.name,
         category: jacket.category
-      }))
-      .sort(() => Math.random() - 0.5); // Simple shuffle
-  }, []);
+      }));
+    
+    if (!mounted) return baseImages;
+    
+    return [...baseImages].sort(() => Math.random() - 0.5); // Shuffle only on client
+  }, [mounted]);
 
   // Duplicate items to ensure seamless loop without gaps
   const carouselItems = [...productImages, ...productImages];

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle, AlertCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -50,6 +50,26 @@ export default function ContactPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // 1. Frontend Validation
+    const nameRegex = /^[a-zA-Z\s]{2,30}$/;
+    if (!nameRegex.test(formData.firstName) || !nameRegex.test(formData.lastName)) {
+      setStatus({ ...status, error: "Name must contain only letters (2-30 characters)." });
+      return;
+    }
+
+    if (formData.message.length < 25) {
+      setStatus({ ...status, error: "Message is too short. Please provide more details (min 25 chars)." });
+      return;
+    }
+
+    // 2. Get reCAPTCHA token
+    const recaptchaToken = window.grecaptcha.getResponse();
+    if (!recaptchaToken) {
+      setStatus({ ...status, error: "Please complete the Captcha." });
+      return;
+    }
+
     setStatus({ submitting: true, success: false, error: null });
 
     try {
@@ -58,7 +78,7 @@ export default function ContactPage() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, recaptchaToken }),
       });
 
       const data = await response.json();
@@ -68,6 +88,7 @@ export default function ContactPage() {
       }
 
       setStatus({ submitting: false, success: true, error: null });
+      if (window.grecaptcha) window.grecaptcha.reset();
       setFormData({
         firstName: "",
         lastName: "",
@@ -239,6 +260,13 @@ export default function ContactPage() {
                       className="w-full px-4 py-3 border border-light-grey rounded-lg focus:outline-none focus:border-gold transition-colors resize-none"
                       placeholder="Tell us about your project..."
                     />
+                  </div>
+
+                  <div className="flex justify-center md:justify-start">
+                    <div 
+                      className="g-recaptcha" 
+                      data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"}
+                    ></div>
                   </div>
 
                   {status.error && (
