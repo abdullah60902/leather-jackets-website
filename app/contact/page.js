@@ -66,18 +66,25 @@ export default function ContactPage() {
       }
     };
 
-    if (window.grecaptcha && window.grecaptcha.render) {
-      initCaptcha();
-    } else {
-      const checkInterval = setInterval(() => {
+    if (!status.success) {
+      const timer = setTimeout(() => {
         if (window.grecaptcha && window.grecaptcha.render) {
           initCaptcha();
-          clearInterval(checkInterval);
+        } else {
+          const checkInterval = setInterval(() => {
+            if (window.grecaptcha && window.grecaptcha.render) {
+              initCaptcha();
+              clearInterval(checkInterval);
+            }
+          }, 500);
+          return () => clearInterval(checkInterval);
         }
-      }, 500);
-      return () => clearInterval(checkInterval);
+      }, 100);
+      return () => clearTimeout(timer);
+    } else {
+      recaptchaWidgetRef.current = null;
     }
-  }, []);
+  }, [status.success]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
