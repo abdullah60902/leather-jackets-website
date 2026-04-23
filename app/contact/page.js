@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle, AlertCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -48,6 +48,35 @@ export default function ContactPage() {
     "Hoodies"
   ];
 
+  const recaptchaContainerRef = useRef(null);
+  const recaptchaWidgetRef = useRef(null);
+
+  useEffect(() => {
+    const initCaptcha = () => {
+      if (window.grecaptcha && recaptchaContainerRef.current && recaptchaWidgetRef.current === null) {
+        try {
+          recaptchaWidgetRef.current = window.grecaptcha.render(recaptchaContainerRef.current, {
+            sitekey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI",
+          });
+        } catch (e) {
+          console.error("reCAPTCHA render error:", e);
+        }
+      }
+    };
+
+    if (window.grecaptcha && window.grecaptcha.render) {
+      initCaptcha();
+    } else {
+      const checkInterval = setInterval(() => {
+        if (window.grecaptcha && window.grecaptcha.render) {
+          initCaptcha();
+          clearInterval(checkInterval);
+        }
+      }, 500);
+      return () => clearInterval(checkInterval);
+    }
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -64,7 +93,13 @@ export default function ContactPage() {
     }
 
     // 2. Get reCAPTCHA token
-    const recaptchaToken = window.grecaptcha.getResponse();
+    let recaptchaToken = "";
+    try {
+      recaptchaToken = window.grecaptcha.getResponse(recaptchaWidgetRef.current);
+    } catch (e) {
+      console.error("Captcha error:", e);
+    }
+
     if (!recaptchaToken) {
       setStatus({ ...status, error: "Please complete the Captcha." });
       return;
@@ -88,7 +123,9 @@ export default function ContactPage() {
       }
 
       setStatus({ submitting: false, success: true, error: null });
-      if (window.grecaptcha) window.grecaptcha.reset();
+      if (window.grecaptcha && recaptchaWidgetRef.current !== null) {
+        window.grecaptcha.reset(recaptchaWidgetRef.current);
+      }
       setFormData({
         firstName: "",
         lastName: "",
@@ -262,11 +299,8 @@ export default function ContactPage() {
                     />
                   </div>
 
-                  <div className="flex justify-center md:justify-start">
-                    <div 
-                      className="g-recaptcha" 
-                      data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"}
-                    ></div>
+                  <div className="flex justify-center md:justify-start min-h-[78px]">
+                    <div ref={recaptchaContainerRef}></div>
                   </div>
 
                   {status.error && (
