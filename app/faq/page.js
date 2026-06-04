@@ -12,7 +12,7 @@ const faqs = [
     questions: [
       {
         q: "What is the minimum order quantity (MOQ)?",
-        a: "Our MOQ is 25 items. This allows small brands and startups to access premium manufacturing without massive upfront investment."
+        a: "Our MOQ is 25 pieces. This allows small brands and startups to access premium manufacturing without massive upfront investment."
       },
       {
         q: "How can I get a quote?",

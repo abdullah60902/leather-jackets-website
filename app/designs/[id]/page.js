@@ -61,7 +61,7 @@ export default function DesignDetailPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!meetsMinimum) {
-      alert("Minimum order quantity is 25 items");
+      alert("Minimum order quantity is 25 pieces");
       return;
     }
 
@@ -212,7 +212,7 @@ export default function DesignDetailPage() {
                   
                   <div className={`mt-4 p-4 rounded-lg ${meetsMinimum ? "bg-green-50 border border-green-200" : "bg-red-50 border border-red-200"}`}>
                     <p className={`text-sm font-medium ${meetsMinimum ? "text-green-800" : "text-red-800"}`}>
-                      Total Quantity: {totalQuantity} items
+                      Total Quantity: {totalQuantity} pieces
                       {!meetsMinimum && ` (Need ${25 - totalQuantity} more to meet MOQ)`}
                       {meetsMinimum && " ✓ Minimum requirement met!"}
                     </p>
@@ -315,7 +315,7 @@ export default function DesignDetailPage() {
                 <div className="bg-dark-grey text-white rounded-lg p-6">
                   <div className="flex items-center justify-between mb-6 pb-6 border-b border-white/10">
                     <span className="text-off-white/70">Total Quantity:</span>
-                    <span className="text-2xl font-semibold">{totalQuantity} items</span>
+                    <span className="text-2xl font-semibold">{totalQuantity} pieces</span>
                   </div>
                   <Button
                     type="submit"

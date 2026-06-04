@@ -10,7 +10,7 @@ A world-class, £1M+ valuation SaaS platform for bespoke leather jacket manufact
 
 **Type:** B2B + B2C Hybrid Manufacturing SaaS  
 **Location:** UK-based (London)  
-**MOQ:** 25 Items  
+**MOQ:** 25 Pieces  
 **Target:** Brands, Companies, Clubs, Bulk Buyers  
 **Tech Stack:** Next.js 16, Tailwind CSS v4, Framer Motion, Stripe
 
@@ -247,7 +247,7 @@ leather-jackets/
 
 ## 🏆 Competitive Advantages
 
-1. **Low MOQ** - 25 items vs industry standard 50-100
+1. **Low MOQ** - 25 pieces vs industry standard 50-100
 2. **Full Customization** - Automotive-level configurator
 3. **Fast Turnaround** - 4-6 weeks standard
 4. **UK-Based** - Quality, compliance, trust

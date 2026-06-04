@@ -83,7 +83,7 @@ export default function BulkPage() {
                 {
                   icon: <Package className="w-8 h-8" />,
                   title: "Flexible MOQ",
-                  desc: "Start with just 25 items. Perfect for small brands and startups."
+                  desc: "Start with just 25 pieces. Perfect for small brands and startups."
                 },
                 {
                   icon: <Award className="w-8 h-8" />,

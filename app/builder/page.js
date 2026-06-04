@@ -103,7 +103,7 @@ export default function BuilderPage() {
   /* Submit Logic */
   const handleSubmit = () => {
     if (!meetsMinimum) {
-      alert("Minimum order quantity is 25 items");
+      alert("Minimum order quantity is 25 pieces");
       return;
     }
 
@@ -386,7 +386,7 @@ export default function BuilderPage() {
                           </div>
                            <div className={`mt-4 p-4 rounded-lg ${meetsMinimum ? "bg-green-50 border border-green-200" : "bg-red-50 border border-red-200"}`}>
                             <p className={`text-sm font-medium ${meetsMinimum ? "text-green-800" : "text-red-800"}`}>
-                              Total Quantity: {totalQuantity} items
+                              Total Quantity: {totalQuantity} pieces
                               {!meetsMinimum && ` (Need ${25 - totalQuantity} more to meet MOQ)`}
                               {meetsMinimum && " ✓ Minimum requirement met!"}
                             </p>
