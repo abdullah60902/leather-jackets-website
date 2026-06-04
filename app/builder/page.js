@@ -71,7 +71,7 @@ export default function BuilderPage() {
   };
 
   const totalQuantity = Object.values(sizeQuantities).reduce((sum, qty) => sum + qty, 0);
-  const meetsMinimum = totalQuantity >= 10;
+  const meetsMinimum = totalQuantity >= 25;
 
   const canProceed = () => {
     const requiredFields = [
@@ -103,7 +103,7 @@ export default function BuilderPage() {
   /* Submit Logic */
   const handleSubmit = () => {
     if (!meetsMinimum) {
-      alert("Minimum order quantity is 10 jackets");
+      alert("Minimum order quantity is 25 items");
       return;
     }
 
@@ -365,7 +365,7 @@ export default function BuilderPage() {
 
                         {/* Size Matrix */}
                         <div>
-                          <label className="block text-sm font-semibold text-dark-grey mb-3">Select Sizes & Quantities (Min 10 Total)</label>
+                          <label className="block text-sm font-semibold text-dark-grey mb-3">Select Sizes & Quantities (Min 25 Total)</label>
                           <div className="bg-white rounded-lg border border-light-grey p-6 space-y-4">
                              {["XS", "S", "M", "L", "XL", "XXL", "XXXL"].map((size) => ( // Using explicit array or import standardSizes
                                 <div key={size} className="flex items-center justify-between">
@@ -386,8 +386,8 @@ export default function BuilderPage() {
                           </div>
                            <div className={`mt-4 p-4 rounded-lg ${meetsMinimum ? "bg-green-50 border border-green-200" : "bg-red-50 border border-red-200"}`}>
                             <p className={`text-sm font-medium ${meetsMinimum ? "text-green-800" : "text-red-800"}`}>
-                              Total Quantity: {totalQuantity} jackets
-                              {!meetsMinimum && ` (Need ${10 - totalQuantity} more to meet MOQ)`}
+                              Total Quantity: {totalQuantity} items
+                              {!meetsMinimum && ` (Need ${25 - totalQuantity} more to meet MOQ)`}
                               {meetsMinimum && " ✓ Minimum requirement met!"}
                             </p>
                           </div>

@@ -41,7 +41,7 @@ export default function DesignDetailPage() {
   };
 
   const totalQuantity = Object.values(sizeQuantities).reduce((sum, qty) => sum + qty, 0);
-  const meetsMinimum = totalQuantity >= 10;
+  const meetsMinimum = totalQuantity >= 25;
   const totalPrice = totalQuantity * jacket.price;
 
   const handleLogoUpload = (e) => {
@@ -61,7 +61,7 @@ export default function DesignDetailPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!meetsMinimum) {
-      alert("Minimum order quantity is 10 jackets");
+      alert("Minimum order quantity is 25 items");
       return;
     }
 
@@ -174,7 +174,7 @@ export default function DesignDetailPage() {
                 <div>
                   <label className="block text-sm font-semibold text-dark-grey mb-3">
                     Select Sizes & Quantities
-                    <span className="ml-2 text-xs font-normal text-mid-grey">(Minimum 10 total)</span>
+                    <span className="ml-2 text-xs font-normal text-mid-grey">(Minimum 25 total)</span>
                   </label>
                   <div className="bg-white rounded-lg shadow-card p-6 space-y-4">
                     {standardSizes.map((size) => (
@@ -212,8 +212,8 @@ export default function DesignDetailPage() {
                   
                   <div className={`mt-4 p-4 rounded-lg ${meetsMinimum ? "bg-green-50 border border-green-200" : "bg-red-50 border border-red-200"}`}>
                     <p className={`text-sm font-medium ${meetsMinimum ? "text-green-800" : "text-red-800"}`}>
-                      Total Quantity: {totalQuantity} jackets
-                      {!meetsMinimum && ` (Need ${10 - totalQuantity} more to meet MOQ)`}
+                      Total Quantity: {totalQuantity} items
+                      {!meetsMinimum && ` (Need ${25 - totalQuantity} more to meet MOQ)`}
                       {meetsMinimum && " ✓ Minimum requirement met!"}
                     </p>
                   </div>
@@ -315,7 +315,7 @@ export default function DesignDetailPage() {
                 <div className="bg-dark-grey text-white rounded-lg p-6">
                   <div className="flex items-center justify-between mb-6 pb-6 border-b border-white/10">
                     <span className="text-off-white/70">Total Quantity:</span>
-                    <span className="text-2xl font-semibold">{totalQuantity} jackets</span>
+                    <span className="text-2xl font-semibold">{totalQuantity} items</span>
                   </div>
                   <Button
                     type="submit"
@@ -324,7 +324,7 @@ export default function DesignDetailPage() {
                     className="w-full bg-gold hover:bg-gold-light border-gold"
                     disabled={!meetsMinimum}
                   >
-                    {meetsMinimum ? "Get in Touch" : `Add ${10 - totalQuantity} More to Request Quote`}
+                    {meetsMinimum ? "Get in Touch" : `Add ${25 - totalQuantity} More to Request Quote`}
                   </Button>
                 </div>
               </form>

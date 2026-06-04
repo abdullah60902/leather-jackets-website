@@ -36,7 +36,7 @@ export default function TermsPage() {
                   We provide custom leather jacket manufacturing services with the following terms:
                 </p>
                 <ul className="list-disc pl-6 text-mid-grey space-y-2">
-                  <li><strong>Minimum Order Quantity (MOQ):</strong> 10 jackets</li>
+                  <li><strong>Minimum Order Quantity (MOQ):</strong> 25 items</li>
                   <li><strong>Production Time:</strong> 4-6 weeks (standard), 2-3 weeks (express available)</li>
                   <li><strong>Customization:</strong> All specifications must be finalized before production begins</li>
                 </ul>
