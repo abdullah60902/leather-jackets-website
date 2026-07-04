@@ -41,7 +41,7 @@ export default function DesignDetailPage() {
   };
 
   const totalQuantity = Object.values(sizeQuantities).reduce((sum, qty) => sum + qty, 0);
-  const meetsMinimum = totalQuantity >= 25;
+  const meetsMinimum = totalQuantity >= 30;
   const totalPrice = totalQuantity * jacket.price;
 
   const handleLogoUpload = (e) => {
@@ -61,7 +61,7 @@ export default function DesignDetailPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!meetsMinimum) {
-      alert("Minimum order quantity is 25 pieces");
+      alert("Minimum order quantity is 30 pieces");
       return;
     }
 
@@ -174,7 +174,7 @@ export default function DesignDetailPage() {
                 <div>
                   <label className="block text-sm font-semibold text-dark-grey mb-3">
                     Select Sizes & Quantities
-                    <span className="ml-2 text-xs font-normal text-mid-grey">(Minimum 25 total)</span>
+                    <span className="ml-2 text-xs font-normal text-mid-grey">(Minimum 30 total)</span>
                   </label>
                   <div className="bg-white rounded-lg shadow-card p-6 space-y-4">
                     {standardSizes.map((size) => (
@@ -213,7 +213,7 @@ export default function DesignDetailPage() {
                   <div className={`mt-4 p-4 rounded-lg ${meetsMinimum ? "bg-green-50 border border-green-200" : "bg-red-50 border border-red-200"}`}>
                     <p className={`text-sm font-medium ${meetsMinimum ? "text-green-800" : "text-red-800"}`}>
                       Total Quantity: {totalQuantity} pieces
-                      {!meetsMinimum && ` (Need ${25 - totalQuantity} more to meet MOQ)`}
+                      {!meetsMinimum && ` (Need ${30 - totalQuantity} more to meet MOQ)`}
                       {meetsMinimum && " ✓ Minimum requirement met!"}
                     </p>
                   </div>
@@ -324,7 +324,7 @@ export default function DesignDetailPage() {
                     className="w-full bg-gold hover:bg-gold-light border-gold"
                     disabled={!meetsMinimum}
                   >
-                    {meetsMinimum ? "Get in Touch" : `Add ${25 - totalQuantity} More to Request Quote`}
+                    {meetsMinimum ? "Get in Touch" : `Add ${30 - totalQuantity} More to Request Quote`}
                   </Button>
                 </div>
               </form>

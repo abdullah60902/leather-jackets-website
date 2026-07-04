@@ -97,7 +97,7 @@ export default function Hero() {
               className="grid grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-5 md:gap-10 pt-8 border-t border-white/5 max-w-2xl"
             >
               <div className="space-y-0.5">
-                <p className="text-gold font-serif text-lg sm:text-xl md:text-2xl">MOQ 25</p>
+                <p className="text-gold font-serif text-lg sm:text-xl md:text-2xl">MOQ 30</p>
                 <p className="text-white/30 text-[7px] sm:text-[9px] uppercase tracking-[0.2em]">Minimum Batch</p>
               </div>
               <div className="space-y-0.5">

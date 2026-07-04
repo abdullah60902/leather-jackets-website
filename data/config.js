@@ -127,7 +127,7 @@ export const logoPlacement = [
 ];
 
 export const bulkDiscounts = [
-  { minQty: 25, maxQty: 49, discount: 5 },
+  { minQty: 30, maxQty: 49, discount: 5 },
   { minQty: 50, maxQty: 99, discount: 10 },
   { minQty: 100, maxQty: 249, discount: 15 },
   { minQty: 250, maxQty: 499, discount: 20 },
