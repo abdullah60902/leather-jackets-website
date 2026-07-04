@@ -14,7 +14,7 @@ export default function ContactPage() {
     email: "",
     phone: "",
     company: "",
-    quantity: "10-24",
+    quantity: "30-49",
     categories: [], // New multi-select field
     message: "",
   });
@@ -141,7 +141,7 @@ export default function ContactPage() {
         email: "",
         phone: "",
         company: "",
-        quantity: "10-24",
+        quantity: "30-49",
         categories: [],
         message: "",
       });
@@ -262,8 +262,7 @@ export default function ContactPage() {
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-light-grey rounded-lg focus:outline-none focus:border-gold transition-colors"
                     >
-                      <option>10-24</option>
-                      <option>25-49</option>
+                      <option>30-49</option>
                       <option>50-99</option>
                       <option>100-249</option>
                       <option>250+</option>
